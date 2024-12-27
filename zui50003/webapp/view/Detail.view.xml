@@ -116,13 +116,20 @@
 								  displayShape="Square"
 								  class="sapUiTinyMarginEnd">
 						</m:Avatar> -->
-                <!-- <m:VBox
+                <m:VBox
+                    id="_IDGenVBox11"
                     justifyContent="Center"
                     class="sapUiSmallMarginEnd"
                 >
-                    <m:Label text="导入凭证号" />
-                    <m:Text text="{dataModel>pk_no}" />
-                </m:VBox> -->
+                    <m:Label
+                        id="_IDGenLabel11"
+                        text="SAP凭证号"
+                    />
+                    <m:Text
+                        id="_IDGenText51"
+                        text="{dataModel>accountingdocument}"
+                    />
+                </m:VBox>
                 <m:VBox
                     id="_IDGenVBox1"
                     justifyContent="Center"

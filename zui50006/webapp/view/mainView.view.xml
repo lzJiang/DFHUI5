@@ -261,7 +261,7 @@
                                 value="{dataModel>zj}"
                                 change="onzjChange"
                                 showValueHelp="true"
-			                    valueHelpRequest=".onValueHelpRequest"
+                                valueHelpRequest=".onValueHelpRequest"
                             />
                         </table:template>
                     </table:Column>
@@ -328,6 +328,28 @@
                                 id="_IDGenText55"
                                 type="Number"
                                 value="{dataModel>requestedqty}"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn2"
+                        width="8rem"
+                        app:p13nKey="zcjtext_col"
+                        sortProperty="zcjtext"
+                        filterProperty="zcjtext"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel1"
+                            text="车间"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText1"
+                                text="{dataModel>zcjtext}"
+                                wrapping="false"
                             />
                         </table:template>
                     </table:Column>

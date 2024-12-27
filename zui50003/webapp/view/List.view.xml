@@ -74,8 +74,21 @@
                                             />
                                             <Input
                                                 id='ids36'
-                                                width="10rem"
+                                                width="8rem"
                                                 value="{searchModel>/pk_no}"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Label
+                                                id="_IDGenLabel361"
+                                                labelFor='ids361'
+                                                text="公司代码："
+                                                class="myMasterHead"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Input
+                                                id='ids361'
+                                                width="6rem"
+                                                value="{searchModel>/companycode}"
                                                 visible="{appModel>/displayType}"
                                             />
                                             <Label
@@ -128,7 +141,15 @@
                                                 style: 'short',
 												source: {pattern: 'yyyyMMdd'}
 											}}"
-                                            />
+                                            />      
+                                        </l:HorizontalLayout>
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement id="_IDGenFormElement2">
+                                    <form:fields>
+                                        <l:HorizontalLayout
+                                            id="_IDGenHorizontalLayout2"
+                                        >
                                             <Button
                                                 id="_IDGenButton"
                                                 text="查询"
@@ -282,9 +303,7 @@
                         hAlign="Center"
                         headerMenu="menu"
                     >
-                        <Text
-                            text="状态"
-                        />
+                        <Text text="状态" />
                     </Column>
                     <Column
                         id="msg_col"
@@ -293,9 +312,7 @@
                         hAlign="Center"
                         headerMenu="menu"
                     >
-                        <Text
-                            text="消息"
-                        />
+                        <Text text="消息" />
                     </Column>
                     <Column
                         id="pk_no_col"
@@ -304,9 +321,7 @@
                         hAlign="Center"
                         headerMenu="menu"
                     >
-                        <Text
-                            text="导入凭证号"
-                        />
+                        <Text text="导入凭证号" />
                     </Column>
                     <Column
                         id="accountingdocument_col"
@@ -315,9 +330,7 @@
                         hAlign="Center"
                         headerMenu="menu"
                     >
-                        <Text
-                            text="SAP凭证号"
-                        />
+                        <Text text="SAP凭证号" />
                     </Column>
                     <Column
                         id="companycode_col"
@@ -326,9 +339,7 @@
                         hAlign="Center"
                         headerMenu="menu"
                     >
-                        <Text
-                            text="公司代码"
-                        />
+                        <Text text="公司代码" />
                     </Column>
                     <Column
                         id="customer_col"
@@ -337,9 +348,7 @@
                         hAlign="Center"
                         headerMenu="menu"
                     >
-                        <Text
-                            text="客户"
-                        />
+                        <Text text="客户" />
                     </Column>
                     <Column
                         id="postingdate_col"
@@ -348,9 +357,7 @@
                         hAlign="Center"
                         headerMenu="menu"
                     >
-                        <Text
-                            text="过账日期"
-                        />
+                        <Text text="过账日期" />
                     </Column>
                     <Column
                         id="jxje_col"
@@ -359,9 +366,7 @@
                         hAlign="Center"
                         headerMenu="menu"
                     >
-                        <Text
-                            text="借项金额"
-                        />
+                        <Text text="借项金额" />
                     </Column>
                     <Column
                         id="dxje_col"
@@ -370,9 +375,7 @@
                         hAlign="Center"
                         headerMenu="menu"
                     >
-                        <Text
-                            text="贷项金额"
-                        />
+                        <Text text="贷项金额" />
                     </Column>
                 </columns>
                 <items>
@@ -390,25 +393,17 @@
                                 icon="{dataModel>statusicon}"
                                 state="{dataModel>status}"
                             />
-                            <ObjectIdentifier
-                                title="{dataModel>msg}"
-                            />
-                            <ObjectIdentifier
-                                title="{dataModel>pk_no}"
-                            />
+                            <ObjectIdentifier title="{dataModel>msg}" />
+                            <ObjectIdentifier title="{dataModel>pk_no}" />
                             <ObjectIdentifier
                                 title="{dataModel>accountingdocument}"
                             />
-                            <ObjectIdentifier
-                                title="{dataModel>companycode}"
-                            />
+                            <ObjectIdentifier title="{dataModel>companycode}" />
                             <ObjectIdentifier
                                 title="{dataModel>customer}"
                                 text="{dataModel>customername}"
                             />
-                            <ObjectIdentifier
-                                title="{dataModel>postingdate}"
-                            />
+                            <ObjectIdentifier title="{dataModel>postingdate}" />
                             <ObjectNumber
                                 id="_IDGenObjectNumber"
                                 number="{

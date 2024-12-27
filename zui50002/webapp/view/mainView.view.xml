@@ -46,22 +46,22 @@
                                             text="工厂："
                                             class="myMasterHead"
                                         />
-                                        <Input
-                                            id='ids1'
-                                            width="6rem"
-                                            value="{searchModel>/productionplant}"
-                                        />
-                                        <Label
-                                            id="_IDGenLabel1"
-                                            labelFor='ids2'
-                                            text="物料："
-                                            class="myMasterHead"
-                                        />
-                                        <Input
-                                            id='ids2'
-                                            width="6rem"
-                                            value="{searchModel>/material}"
-                                        />
+                                        <Select id="_IDGenSelect"
+                                            width="15rem"
+                                            forceSelection="true"
+                                            selectedKey="{searchModel>/productionplant}"
+                                        >
+                                            <core:Item
+                                                id="_IDGenItem2"
+                                                key="1100"
+                                                text="北京东方红航天生物技术工厂"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem3"
+                                                key="4100"
+                                                text="河北天辰阳光科技工厂"
+                                            />
+                                        </Select>
                                         <Label
                                             id="_IDGenLabel2"
                                             labelFor='ids3'
@@ -70,7 +70,7 @@
                                         />
                                         <Input
                                             id='ids3'
-                                            width="6rem"
+                                            width="10rem"
                                             value="{searchModel>/plannedorder}"
                                         />
                                         <Label
@@ -81,7 +81,7 @@
                                         />
                                         <Input
                                             id='ids4'
-                                            width="8rem"
+                                            width="10rem"
                                             value="{searchModel>/yy1_plannebatch_pla}"
                                         />
                                         <Label
@@ -134,8 +134,19 @@
                                         />
                                         <Input
                                             id='ids33'
-                                            width="6rem"
+                                            width="15rem"
                                             value="{searchModel>/mrpcontroller}"
+                                        />
+                                        <Label
+                                            id="_IDGenLabel1"
+                                            labelFor='ids2'
+                                            text="物料："
+                                            class="myMasterHead"
+                                        />
+                                        <Input
+                                            id='ids2'
+                                            width="10rem"
+                                            value="{searchModel>/material}"
                                         />
                                         <Label
                                             id="_IDGenLabel34"
@@ -145,7 +156,7 @@
                                         />
                                         <Input
                                             id='ids34'
-                                            width="6rem"
+                                            width="10rem"
                                             value="{searchModel>/productname}"
                                         />
                                         <Button

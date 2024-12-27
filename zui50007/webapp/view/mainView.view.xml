@@ -353,6 +353,28 @@
                         </table:template>
                     </table:Column>
                     <table:Column
+                        id="_IDGenColumn1"
+                        width="8rem"
+                        app:p13nKey="zcjtext_col"
+                        sortProperty="zcjtext"
+                        filterProperty="zcjtext"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel2"
+                            text="车间"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenInput"
+                                text="{dataModel>zcjtext}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
                         id="_IDGenColumn566"
                         width="10rem"
                         app:p13nKey="storagelocationto_col"
@@ -423,13 +445,23 @@
                             >
                                 <core:Item
                                     id="_IDGenItem22"
-                                    key="A01"
-                                    text="WMS接收地点1"
+                                    key="平库"
+                                    text="平库"
+                                />
+                                <core:Item
+                                    id="_IDGenItem42"
+                                    key="立库"
+                                    text="立库"
                                 />
                                 <core:Item
                                     id="_IDGenItem32"
-                                    key="A02"
-                                    text="WMS接收地点2"
+                                    key="原料仓"
+                                    text="原料仓"
+                                />
+                                <core:Item
+                                    id="_IDGenItem52"
+                                    key="怀来仓"
+                                    text="怀来仓"
                                 />
                             </Select>
                         </table:template>

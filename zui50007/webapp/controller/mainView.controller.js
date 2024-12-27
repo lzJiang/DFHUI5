@@ -299,6 +299,11 @@ sap.ui.define([
                     path: "batch"
                 },
                 {
+                    key: "zcjtext_col",
+                    label: "车间",
+                    path: "zcjtext"
+                },
+                {
                     key: "storagelocationto_col",
                     label: "发出地点",
                     path: "storagelocationto"
@@ -330,6 +335,7 @@ sap.ui.define([
                 "zjunit_col": "4rem",
                 "requestedqty_col": "6rem",
                 "batch_col": "10rem",
+                "zcjtext_col": "8rem",
                 "storagelocationto_col": "10rem",
                 "storagelocationname_col": "6rem",
                 "sykc_col": "8rem",
@@ -526,6 +532,11 @@ sap.ui.define([
                 },
                 {
                     type: EdmType.String,
+                    label: "车间",
+                    property: "zcjtext"
+                },
+                {
+                    type: EdmType.String,
                     label: "发出地点",
                     property: "storagelocationto"
                 },
@@ -610,7 +621,41 @@ sap.ui.define([
             var selectItem = oEvent.getSource().oParent;
             var path = selectItem.getBindingContext("dataModel").getPath();
             var item = this.getView().getModel("dataModel").getProperty(path);
+            this._onsetcj(oEvent);
             this._onItemSearch(item, path);
+        },
+        _onsetcj: function (oEvent) {
+            var selectItem = oEvent.getSource().oParent;
+            var key = oEvent.getParameters().selectedItem.getKey();
+            var zcj;
+            var zcjtext;
+            switch (key) {
+                case "1005":
+                    zcj = "CTZJCJ";
+                    zcjtext = "固体制剂车间";
+                    break;
+                case "1006":
+                    zcj = "BZCJ";
+                    zcjtext = "包装车间";
+                    break;
+                case "1007":
+                    zcj = "HQCJ";
+                    zcjtext = "红曲车间";
+                    break;
+                case "1008":
+                    zcj = "KFYCJ";
+                    zcjtext = "口服液车间";
+                    break;
+                case "1009":
+                    zcj = "RJNCJ";
+                    zcjtext = "软胶囊车间";
+                    break;
+            };
+           var path = selectItem.getBindingContext("dataModel").getPath();
+           var zcjpath = path + "/zcj";
+           var zcjtextpath = path + "/zcjtext";
+           this.getView().getModel("dataModel").setProperty(zcjpath,zcj);
+           this.getView().getModel("dataModel").setProperty(zcjtextpath,zcjtext);
         },
         checkSave: function (selectedItem) {
             var that = this;

@@ -562,6 +562,28 @@
                         </table:template>
                     </table:Column>
                     <table:Column
+                        id="_IDGenColumn5612"
+                        width="6rem"
+                        app:p13nKey="storagelocationto_col"
+                        sortProperty="storagelocationto"
+                        filterProperty="storagelocationto"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel5612"
+                            text="发出地点"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText5612"
+                                text="{dataModel>storagelocationtoname}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
                         id="_IDGenColumn56"
                         width="6rem"
                         app:p13nKey="storagelocationname_col"
@@ -573,7 +595,7 @@
                     >
                         <Label
                             id="_IDGenLabel56"
-                            text="领用地点"
+                            text="接收地点"
                         />
                         <table:template>
                             <Text
@@ -605,7 +627,7 @@
                             />
                         </table:template>
                     </table:Column>
-                     <table:Column
+                    <table:Column
                         id="_IDGenColumn5621"
                         width="8rem"
                         app:p13nKey="yy1_mfgbatch_ord_col"
@@ -623,6 +645,50 @@
                             <Text
                                 id="_IDGenText5621"
                                 text="{dataModel>yy1_mfgbatch_ord}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn2"
+                        width="8rem"
+                        app:p13nKey="cp_col"
+                        sortProperty="cp"
+                        filterProperty="cp"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel10"
+                            text="产品"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText3"
+                                text="{dataModel>cp}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn3"
+                        width="8rem"
+                        app:p13nKey="cpname_col"
+                        sortProperty="cpname"
+                        filterProperty="cpname"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel11"
+                            text="产品描述"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText4"
+                                text="{dataModel>cpname}"
                                 wrapping="false"
                             />
                         </table:template>
@@ -649,7 +715,7 @@
                             />
                         </table:template>
                     </table:Column>
-                     <table:Column
+                    <table:Column
                         id="_IDGenColumn5623"
                         width="6rem"
                         app:p13nKey="purchaseorderitem_col"
@@ -672,6 +738,28 @@
                         </table:template>
                     </table:Column>
                     <table:Column
+                        id="_IDGenColumn5626"
+                        width="8rem"
+                        app:p13nKey="subcontractor_col"
+                        sortProperty="subcontractor"
+                        filterProperty="subcontractor"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel5626"
+                            text="供应商"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText5626"
+                                text="{dataModel>subcontractor}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
                         id="_IDGenColumn8"
                         width="8rem"
                         app:p13nKey="zcreate_date_col"
@@ -689,6 +777,50 @@
                             <Text
                                 id="_IDGenText8"
                                 text="{dataModel>zcreate_date}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn5"
+                        width="10rem"
+                        app:p13nKey="zhlbz_col"
+                        sortProperty="zhlbz"
+                        filterProperty="zhlbz"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel12"
+                            text="含量备注"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText2"
+                                text="{dataModel>zhlbz}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn9"
+                        width="10rem"
+                        app:p13nKey="zbz_col"
+                        sortProperty="zbz"
+                        filterProperty="zbz"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel16"
+                            text="备注"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText5"
+                                text="{dataModel>zbz}"
                                 wrapping="false"
                             />
                         </table:template>

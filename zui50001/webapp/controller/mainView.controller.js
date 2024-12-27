@@ -32,7 +32,7 @@ sap.ui.define([
             var mfgorderplannedstartdatestr = mfgorderplannedstartdate.toISOString().substring(0, 10);
             mfgorderplannedstartdatestr.replaceAll("-", "");
             this.getView().setModel(new JSONModel({
-                productionplant: "",
+                productionplant: "1100",
                 manufacturingorder: "",
                 material: "",
                 manufacturingordertype: "",
@@ -83,6 +83,7 @@ sap.ui.define([
                     if (data && data.length > 0) {
                         data.forEach(function (item) {
                             item.editable = false;
+                            item.manufacturingorderurl = "/ui#ManufacturingOrderItem-manage&/ManageOrders/C_ManageProductionOrder('" + item.manufacturingorder +"')/sap-iapp-state";
                             item.status = that.setItemStatus(item);
                         });
                     }
@@ -403,6 +404,15 @@ sap.ui.define([
             }
             if (item.orderisreleased == "X") {
                 item.status = item.status + "【下达】";
+            }
+            if (item.yy1_sendbpm == "X") {
+                item.status = item.status + "【已推BPM】";
+            }
+            if (item.yy1_approvestatus == "N") {
+                item.status = item.status + "【BPM拒绝】";
+            }
+            if (item.yy1_approvestatus == "Y") {
+                item.status = item.status + "【BPM通过】";
             }
             if (item.yy1_sendwms == "X") {
                 item.status = item.status + "【已推WMS】";
@@ -992,8 +1002,73 @@ sap.ui.define([
                 };
               };
         },
-        onSendBpm:function(){
-            MessageToast.show("待BPM提供接口后扩展功能");
+        onSendBpm: function () {
+            var that = this;
+            MessageBox.confirm(
+                "确认推送BPM！", {
+                title: "确认",
+                actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+                emphasizedAction: MessageBox.Action.YES,
+                onClose: function (oAction) {
+                    if (oAction == MessageBox.Action.YES) {
+                        that._onSendBpm();
+                    }
+                }
+            }
+            );
+        },
+        _onSendBpm: async function () {
+            var that = this;
+            var data = this.getView().getModel("dataModel").getProperty("/data");
+            var selectItem = that.getSelectItem();
+            if (!selectItem.length > 0) {
+                MessageToast.show("请先选中要处理的项目");
+                return;
+            }
+            for (let index = 0; index < selectItem.length; index++) {
+                const selectOneItem = selectItem[index];
+                let selectOneItemArr = [];
+                selectOneItemArr.push(selectOneItem);
+                var RequestParameter = selectOneItemArr;
+                var req = that.setReq("PP0017", RequestParameter);
+                that.globalBusyOn();
+                await odataUtil.create(that._ODataModel, req).then(function (result) {
+                    var type = result.Returncode;
+                    var message = result.Returnmessage;
+                    var returnResult = result.Returnresult;
+                    if ("S" == type) {
+                        var returndata = JSON.parse(returnResult);
+                        if (returndata && returndata.length > 0) {
+                            returndata.forEach(function (returnitem) {
+                                data.forEach(function (dataitem) {
+                                    if (dataitem.manufacturingorder == returnitem.manufacturingorder) {
+                                        dataitem.yy1_sendbpm = returnitem.yy1_sendbpm;
+                                        dataitem.yy1_flag = returnitem.yy1_flag;
+                                        dataitem.yy1_msg = returnitem.yy1_msg;
+                                        if (dataitem.yy1_flag == 'S') {
+                                            dataitem.flagIcon = "Success";
+                                        } else {
+                                            dataitem.flagIcon = "Error";
+                                        }
+                                        dataitem.status = that.setItemStatus(dataitem);
+                                    }
+                                });
+                            });
+                        }
+                        that.getView().getModel("dataModel").setProperty("/data", data);
+                        MessageToast.show("处理完成，处理明细请查看行信息！");
+                        that.globalBusyOff();
+                    } else {
+                        MessageToast.show(message);
+                        that.globalBusyOff();
+                    }
+                }).catch(function (err) {
+                    MessageToast.show("接口调用异常，请联系管理员！");
+                    that.getView().getModel("dataModel").setProperty("/data", []);
+                    that.globalBusyOff();
+                    console.log(err);
+                });
+            }
         }
     });
 });

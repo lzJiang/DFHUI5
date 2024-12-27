@@ -136,19 +136,18 @@ sap.ui.define([
         },
         onSendwms: function (oEvent) {
             var that = this;
-            MessageToast.show("待WMS提供接口后完善功能");
-            // MessageBox.confirm(
-            //     "是否下发WMS！", {
-            //     title: "确认",
-            //     actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-            //     emphasizedAction: MessageBox.Action.YES,
-            //     onClose: function (oAction) {
-            //         if (oAction == MessageBox.Action.YES) {
-            //             that._onSendwms();
-            //         }
-            //     }
-            // }
-            // );
+            MessageBox.confirm(
+                "是否下发WMS！", {
+                title: "确认",
+                actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+                emphasizedAction: MessageBox.Action.YES,
+                onClose: function (oAction) {
+                    if (oAction == MessageBox.Action.YES) {
+                        that._onSendwms();
+                    }
+                }
+            }
+            );
 
         },
         _onSendwms: async function () {
@@ -160,47 +159,29 @@ sap.ui.define([
                 MessageToast.show("请先选中要处理的项目");
                 return;
             } else {
-                var checkSave = this.checkSave(selectItem);
-                if (checkSave.flag == 'E') {
-                    MessageToast.show(checkSave.message);
-                    return;
-                }
+
             }
-            var RequestParameter = {
-                zllno: "",
-                zlllx: "01",
-                zllzt: "NEW",
-                productionplant: this.getView().getModel("searchModel").getProperty("/productionplant"),
-                zsendwms: "",
-                zcreate_date: "",
-                zcreate_time: "",
-                zcreate_user: "",
-                zupdate_date: "",
-                zupdate_time: "",
-                zupdate_user: "",
-                itemd: selectItem
-            };
-            var req = that.setReq("PP0014", RequestParameter);
+            var RequestParameter = selectItem;
+            var req = that.setReq("PP0018", RequestParameter);
             that.globalBusyOn();
             odataUtil.create(that._ODataModel, req).then(function (result) {
                 var type = result.Returncode;
                 var message = result.Returnmessage;
                 var returnResult = result.Returnresult;
                 if ("S" == type) {
-                    var returndata = JSON.parse(returnResult);
-                    var returnitemd = returndata.itemd;
+                    var returnitemd = JSON.parse(returnResult);
                     if (returnitemd && returnitemd.length > 0) {
                         returnitemd.forEach(function (returnitem) {
                             data.forEach(function (dataitem) {
-                                if (dataitem.manufacturingorder == returnitem.manufacturingorder
-                                    && dataitem.reservationitem == returnitem.reservationitem
+                                if (dataitem.zllno == returnitem.zllno
                                 ) {
-                                    dataitem.yy1_flag = returndata.yy1_flag;
-                                    dataitem.yy1_msg = returndata.yy1_msg;
+                                    dataitem.yy1_flag = returnitem.yy1_flag;
+                                    dataitem.yy1_msg = returnitem.yy1_msg;
                                     if (dataitem.yy1_flag == 'S') {
                                         dataitem.flagIcon = "Success";
-                                        dataitem.zllno = returndata.zllno;
-                                        dataitem.zcreate_date = returndata.zcreate_date;
+                                        dataitem.zllzt = returnitem.zllzt;
+                                        that.setZllzttext(dataitem);
+                                        dataitem.wmsno = returnitem.wmsno;
                                     } else {
                                         dataitem.flagIcon = "Error";
                                     }
@@ -403,8 +384,13 @@ sap.ui.define([
                     path: "zcjtext"
                 },
                 {
+                    key: "storagelocationto_col",
+                    label: "发出地点",
+                    path: "storagelocationto"
+                },
+                {
                     key: "storagelocationname_col",
-                    label: "领用地点",
+                    label: "接收地点",
                     path: "storagelocationname"
                 },
                 {
@@ -418,6 +404,16 @@ sap.ui.define([
                     path: "yy1_mfgbatch_ord"
                 },
                 {
+                    key: "cp_col",
+                    label: "产品",
+                    path: "cp"
+                },
+                {
+                    key: "cpname_col",
+                    label: "产品描述",
+                    path: "cpname"
+                },
+                {
                     key: "purchaseorder_col",
                     label: "采购订单",
                     path: "purchaseorder"
@@ -428,9 +424,24 @@ sap.ui.define([
                     path: "purchaseorderitem"
                 },
                 {
+                    key: "subcontractor_col",
+                    label: "供应商",
+                    path: "subcontractor"
+                },
+                {
                     key: "zcreate_date_col",
                     label: "创建日期",
                     path: "zcreate_date"
+                },
+                {
+                    key: "zhlbz_col",
+                    label: "含量备注",
+                    path: "zhlbz"
+                },
+                {
+                    key: "zbz_col",
+                    label: "备注",
+                    path: "zbz"
                 }
             ]);
 
@@ -447,12 +458,18 @@ sap.ui.define([
                 "requestedqty_col": "6rem",
                 "zjunit_col": "4rem",
                 "zcjtext_col": "6rem",
+                "storagelocationto_col": "6rem",
                 "storagelocationname_col": "6rem",
                 "manufacturingorder_col": "8rem",
                 "yy1_mfgbatch_ord_col": "8rem",
+                "cp_col": "8rem",
+                "cpname_col": "8rem",
                 "purchaseorder_col": "8rem",
                 "purchaseorderitem_col": "6rem",
-                "zcreate_date_col": "8rem"
+                "subcontractor_col": "8rem",
+                "zcreate_date_col": "8rem",
+                "zhlbz_col": "10rem",
+                "zbz_col": "10rem"
             };
 
             Engine.getInstance().register(oTable, {

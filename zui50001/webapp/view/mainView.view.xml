@@ -46,33 +46,71 @@
                                             text="工厂："
                                             class="myMasterHead"
                                         />
-                                        <Input
-                                            id='ids1'
-                                            width="6rem"
-                                            value="{searchModel>/productionplant}"
-                                        />
-                                        <Label
-                                            id="_IDGenLabel1"
-                                            labelFor='ids2'
-                                            text="物料："
-                                            class="myMasterHead"
-                                        />
-                                        <Input
-                                            id='ids2'
-                                            width="6rem"
-                                            value="{searchModel>/material}"
-                                        />
+                                        <Select
+                                            id="_IDGenSelect"
+                                            width="15rem"
+                                            forceSelection="true"
+                                            selectedKey="{searchModel>/productionplant}"
+                                        >
+                                            <core:Item
+                                                id="_IDGenItem2"
+                                                key="1100"
+                                                text="北京东方红航天生物技术工厂"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem3"
+                                                key="4100"
+                                                text="河北天辰阳光科技工厂"
+                                            />
+                                        </Select>
                                         <Label
                                             id="_IDGenLabel2"
                                             labelFor='ids3'
                                             text="订单类型："
                                             class="myMasterHead"
                                         />
-                                        <Input
-                                            id='ids3'
-                                            width="6rem"
-                                            value="{searchModel>/manufacturingordertype}"
-                                        />
+                                        <Select
+                                            id="_IDGenSelectSearch2"
+                                            width="10rem"
+                                            forceSelection="false"
+                                            selectedKey="{searchModel>/manufacturingordertype}"
+                                        >
+                                            <core:Item
+                                                id="_IDGenItem28"
+                                                key=""
+                                                text=""
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem8"
+                                                key="红曲车间"
+                                                text="红曲车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem9"
+                                                key="固体制剂车间"
+                                                text="固体制剂车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem10"
+                                                key="成品包装车间"
+                                                text="成品包装车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem11"
+                                                key="软胶囊车间"
+                                                text="软胶囊车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem12"
+                                                key="口服液车间"
+                                                text="口服液车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem13"
+                                                key="研发试制订单"
+                                                text="研发试制订单"
+                                            />
+                                        </Select>
                                         <Label
                                             id="_IDGenLabel3"
                                             labelFor='ids4'
@@ -138,8 +176,19 @@
                                         />
                                         <Input
                                             id='ids33'
-                                            width="6rem"
+                                            width="15rem"
                                             value="{searchModel>/manufacturingorder}"
+                                        />
+                                        <Label
+                                            id="_IDGenLabel1"
+                                            labelFor='ids2'
+                                            text="物料："
+                                            class="myMasterHead"
+                                        />
+                                        <Input
+                                            id='ids2'
+                                            width="10rem"
+                                            value="{searchModel>/material}"
                                         />
                                         <Label
                                             id="_IDGenLabel34"
@@ -149,7 +198,7 @@
                                         />
                                         <Input
                                             id='ids34'
-                                            width="6rem"
+                                            width="8rem"
                                             value="{searchModel>/productname}"
                                         />
                                         <Button
@@ -158,7 +207,7 @@
                                             icon="sap-icon://search"
                                             press=".onDataSearch"
                                             type="Accept"
-                                            class="myMasterHead"
+                                            class="myMasterHeadButton"
                                         />
                                     </l:HorizontalLayout>
                                 </f:fields>
@@ -339,10 +388,15 @@
                             text="订单"
                         />
                         <table:template>
-                            <Text
+                            <!-- <Text
                                 id="_IDGenText1"
                                 text="{dataModel>manufacturingorder}"
                                 wrapping="false"
+                            /> -->
+                            <Link id="_IDGenLink"
+                                text="{dataModel>manufacturingorder}"
+                                href="{dataModel>manufacturingorderurl}"
+                                target="_blank"
                             />
                         </table:template>
                     </table:Column>
@@ -753,7 +807,7 @@
                         <table:template>
                             <Text
                                 id="_IDGenText19"
-                                text="{dataModel>yy1_approveTime}"
+                                text="{dataModel>yy1_approvetime}"
                                 wrapping="false"
                             />
                         </table:template>

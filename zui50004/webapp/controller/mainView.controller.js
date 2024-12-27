@@ -29,6 +29,8 @@ sap.ui.define([
         onInit() {
             var productionplant = sessionStorage.getItem("productionplant");
             this.getView().setModel(new JSONModel({
+                manufacturingordertype:"",
+                zjtype:"",
                 cpname:"",
                 productionplant:productionplant,
                 manufacturingorderList: [],
@@ -65,6 +67,8 @@ sap.ui.define([
                         that.getView().getModel("searchModel").setProperty("/manufacturingorderList", []);
                         that.getView().getModel("searchModel").setProperty("/yy1_mfgbatch_ordList", []);
                         that.getView().getModel("searchModel").setProperty("/cpname", "");
+                        that.getView().getModel("searchModel").setProperty("/manufacturingordertype", "");
+                        that.getView().getModel("searchModel").setProperty("/zjtype", "");
                     }
                 }
             }
@@ -118,6 +122,8 @@ sap.ui.define([
                 manufacturingorder: manufacturingorder,
                 yy1_mfgbatch_ord: yy1_mfgbatch_ord,
                 cpname: searchData.cpname,
+                manufacturingordertype:searchData.manufacturingordertype,
+                zjtype:searchData.zjtype,
             };
             var req = that.setReq("PP0010", RequestParameter);
             that.globalBusyOn();
@@ -130,6 +136,9 @@ sap.ui.define([
                     if (data && data.length > 0) {
                         data.forEach(function (item) {
                             item.editable = false;
+                            if (!that.isEmpty(item.storagelocation)) {
+                                that._setCj(item);
+                            }
                         });
                     }
                     that.getView().getModel("dataModel").setProperty("/data", data);
@@ -369,6 +378,11 @@ sap.ui.define([
                     path: "zjqty"
                 },
                 {
+                    key: "zyslsl_col",
+                    label: "已申请数量",
+                    path: "zyslsl"
+                },
+                {
                     key: "zjunit_col",
                     label: "单位",
                     path: "zjunit"
@@ -397,6 +411,16 @@ sap.ui.define([
                     key: "zcreate_date_col",
                     label: "创建日期",
                     path: "zcreate_date"
+                },
+                {
+                    key: "zbz_col",
+                    label: "备注",
+                    path: "zbz"
+                },
+                {
+                    key: "zhlbz_col",
+                    label: "含量备注",
+                    path: "zhlbz"
                 }
             ]);
 
@@ -415,12 +439,15 @@ sap.ui.define([
                 "zjname_col": "10rem",
                 "zjgroupname_col": "8rem",
                 "zjqty_col": "6rem",
+                "zyslsl_col": "8rem",
                 "zjunit_col": "4rem",
                 "requestedqty_col": "6rem",
                 "storagelocationname_col": "6rem",
                 "zcjtext_col": "6rem",
                 "zcy_col": "6rem",
-                "zcreate_date_col": "8rem"
+                "zcreate_date_col": "8rem",
+                "zbz_col": "8rem",
+                "zhllbz_col": "8rem"
             };
 
             Engine.getInstance().register(oTable, {
@@ -633,6 +660,11 @@ sap.ui.define([
                 },
                 {
                     type: EdmType.String,
+                    label: "已申请数量",
+                    property: "zyslsl"
+                },
+                {
+                    type: EdmType.String,
                     label: "单位",
                     property: "zjunit"
                 },
@@ -660,6 +692,16 @@ sap.ui.define([
                     type: EdmType.String,
                     label: "创建日期",
                     property: "zcreate_date"
+                },
+                {
+                    type: EdmType.String,
+                    label: "备注",
+                    property: "zbz"
+                },
+                {
+                    type: EdmType.String,
+                    label: "含量备注",
+                    property: "zhlbz"
                 }
             ];
         },
@@ -682,6 +724,35 @@ sap.ui.define([
                 }).finally(function () {
                     oSheet.destroy();
                 });
+        },
+        _setCj: function (item) {
+            var key = item.storagelocation;
+            var zcj;
+            var zcjtext;
+            switch (key) {
+                case "1005":
+                    zcj = "CTZJCJ";
+                    zcjtext = "固体制剂车间";
+                    break;
+                case "1006":
+                    zcj = "BZCJ";
+                    zcjtext = "包装车间";
+                    break;
+                case "1007":
+                    zcj = "HQCJ";
+                    zcjtext = "红曲车间";
+                    break;
+                case "1008":
+                    zcj = "KFYCJ";
+                    zcjtext = "口服液车间";
+                    break;
+                case "1009":
+                    zcj = "RJNCJ";
+                    zcjtext = "软胶囊车间";
+                    break;
+            };
+           item.zcj = zcj;
+           item.zcjtext = zcjtext;
         },
         onstoragelocationChange: function (oEvent) {
             var selectItem = oEvent.getSource().oParent;

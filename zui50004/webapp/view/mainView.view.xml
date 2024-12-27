@@ -53,6 +53,49 @@
                                             editable="false"
                                         />
                                         <Label
+                                            id="_IDGenLabel2"
+                                            labelFor='_IDGenSelectSearch2'
+                                            text="订单类型："
+                                            class="myMasterHead"
+                                        />
+                                        <Select
+                                            id="_IDGenSelectSearch2"
+                                            width="8rem"
+                                            forceSelection="false"
+                                            selectedKey="{searchModel>/manufacturingordertype}"
+                                        >
+                                            <core:Item
+                                                id="_IDGenItem8"
+                                                key="Z001"
+                                                text="红曲车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem9"
+                                                key="Z002"
+                                                text="固体制剂车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem10"
+                                                key="Z003"
+                                                text="成品包装车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem11"
+                                                key="Z004"
+                                                text="软胶囊车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem12"
+                                                key="Z005"
+                                                text="口服液车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem13"
+                                                key="Z006"
+                                                text="研发试制订单"
+                                            />
+                                        </Select>
+                                        <Label
                                             id="_IDGenLabel1"
                                             labelFor='MultiInput1'
                                             text="生产订单："
@@ -96,6 +139,29 @@
                                             value="{searchModel>/cpname}"
                                         />
                                         <Label
+                                            id="_IDGenLabel5"
+                                            labelFor='_IDGenSelectSearch2'
+                                            text="组件类型："
+                                            class="myMasterHead"
+                                        />
+                                        <Select
+                                            id="_IDGenSelect"
+                                            width="8rem"
+                                            forceSelection="false"
+                                            selectedKey="{searchModel>/zjtype}"
+                                        >
+                                            <core:Item
+                                                id="_IDGenItem"
+                                                key="YFL"
+                                                text="原辅料"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem1"
+                                                key="QT"
+                                                text="其他"
+                                            />
+                                        </Select>
+                                        <Label
                                             id="_IDGenLabel32"
                                             labelFor='MultiInput2'
                                             text="生产批次："
@@ -112,7 +178,8 @@
                                             }"
                                         >
                                             <tokens>
-                                                <Token id="_IDGenToken1"
+                                                <Token
+                                                    id="_IDGenToken1"
                                                     key="{searchModel>key}"
                                                     text="{searchModel>text}"
                                                 />
@@ -536,6 +603,28 @@
                         </table:template>
                     </table:Column>
                     <table:Column
+                        id="_IDGenColumn3"
+                        width="8rem"
+                        app:p13nKey="zyslsl_col"
+                        sortProperty="zyslsl"
+                        filterProperty="zyslsl"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel4"
+                            text="已申请数量"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText2"
+                                text="{dataModel>zyslsl}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
                         id="_IDGenColumn54"
                         width="4rem"
                         app:p13nKey="zjunit_col"
@@ -693,6 +782,50 @@
                                 id="_IDGenText563"
                                 text="{dataModel>zcreate_date}"
                                 wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn5633"
+                        width="8rem"
+                        app:p13nKey="zbz_col"
+                        sortProperty="zbz"
+                        filterProperty="zbz"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel5633"
+                            text="备注"
+                        />
+                        <table:template>
+                            <Input
+                                id="_IDGenText5633"
+                                value="{dataModel>zbz}"
+                                editable="{dataModel>editable}"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn5634"
+                        width="8rem"
+                        app:p13nKey="zhlbz_col"
+                        sortProperty="zhlbz"
+                        filterProperty="zhlbz"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel5634"
+                            text="含量备注"
+                        />
+                        <table:template>
+                            <Input
+                                id="_IDGenText5634"
+                                value="{dataModel>zhlbz}"
+                                editable="{dataModel>editable}"
                             />
                         </table:template>
                     </table:Column>
