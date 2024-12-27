@@ -104,7 +104,7 @@
                         <Button
                             id="_IDGenButton2"
                             icon="sap-icon://save"
-                            text="生成领料单"
+                            text="生成退料单"
                             press="onSave"
                         />
                         <Button

@@ -333,7 +333,7 @@
                     >
                         <Label
                             id="_IDGenLabel321"
-                            text="领料单号"
+                            text="单据号"
                         />
                         <table:template>
                             <Text
