@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: ztfi0001
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: DEV080_SAML_ASSERTION
+          url: https://my200830-api.s4hana.sapcloud.cn
+        app:
+          name: ZTFI_0001
+          description: 银行账号&开户行&开户行账户关系维护表
+          package: ZZFICO
+          transport: NMWK900034
+        exclude:
+          - /test/
