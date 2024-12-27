@@ -187,7 +187,7 @@
                     >
                         <Label
                             id="_IDGenLabel321"
-                            text="领料单号"
+                            text="退料单号"
                         />
                         <table:template>
                             <Text
