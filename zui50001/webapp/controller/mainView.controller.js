@@ -17,15 +17,15 @@ sap.ui.define([
     'sap/ui/core/library',
     'sap/m/table/ColumnWidthController'
 ], (BaseController, Controller, JSONModel, MessageToast, MessageBox, odataUtil, Sorter, formatter,
-    exportLibrary, Spreadsheet, Engine, SelectionController, SortController, GroupController, MetadataHelper, 
+    exportLibrary, Spreadsheet, Engine, SelectionController, SortController, GroupController, MetadataHelper,
     CoreLibrary, ColumnWidthController) => {
     "use strict";
-    
+
     var EdmType = exportLibrary.EdmType;
     return BaseController.extend("zui50001.controller.mainView", {
         currentType: null,
         confirm: null,
-        formatter:formatter,
+        formatter: formatter,
         onInit() {
             var mfgorderplannedstartdate = new Date();
             mfgorderplannedstartdate.setDate(mfgorderplannedstartdate.getDate() - 7);
@@ -46,7 +46,7 @@ sap.ui.define([
             }), "dataModel");
             this.getView().setModel(new JSONModel({
                 currentType: "显示",
-                enableSave:false
+                enableSave: false
             }), "appModel");
             this._ODataModel = this.getOwnerComponent().getModel("odataModel");
             this._ResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
@@ -83,7 +83,7 @@ sap.ui.define([
                     if (data && data.length > 0) {
                         data.forEach(function (item) {
                             item.editable = false;
-                            item.manufacturingorderurl = "/ui#ManufacturingOrderItem-manage&/ManageOrders/C_ManageProductionOrder('" + item.manufacturingorder +"')/sap-iapp-state";
+                            item.manufacturingorderurl = "/ui#ManufacturingOrderItem-manage&/ManageOrders/C_ManageProductionOrder('" + item.manufacturingorder + "')/sap-iapp-state";
                             item.status = that.setItemStatus(item);
                         });
                     }
@@ -761,8 +761,8 @@ sap.ui.define([
                 ColumnWidth: oColumnState
             });
         },
-		createColumnConfig: function() {
-			return [				
+        createColumnConfig: function () {
+            return [
                 {
                     type: EdmType.String,
                     label: "消息",
@@ -873,28 +873,28 @@ sap.ui.define([
                     label: "审批时间",
                     property: "yy1_checktime"
                 }];
-		},
-        onExport: function() {
-			var aCols, oBinding, oSettings, oSheet, oTable;
+        },
+        onExport: function () {
+            var aCols, oBinding, oSettings, oSheet, oTable;
 
-			oTable = this.byId('_IDGenTable');
-			oBinding = oTable.getBinding('rows');
-			aCols = this.createColumnConfig();
+            oTable = this.byId('_IDGenTable');
+            oBinding = oTable.getBinding('rows');
+            aCols = this.createColumnConfig();
 
-			oSettings = {
-				workbook: { columns: aCols },
-				dataSource: oBinding
-			};
+            oSettings = {
+                workbook: { columns: aCols },
+                dataSource: oBinding
+            };
 
-			oSheet = new Spreadsheet(oSettings);
-			oSheet.build()
-				.then(function() {
-					MessageToast.show('Spreadsheet export has finished');
-				}).finally(function() {
-					oSheet.destroy();
-				});
-		},
-        onPrint: function() {
+            oSheet = new Spreadsheet(oSettings);
+            oSheet.build()
+                .then(function () {
+                    MessageToast.show('Spreadsheet export has finished');
+                }).finally(function () {
+                    oSheet.destroy();
+                });
+        },
+        onPrint: function () {
             var that = this;
             MessageBox.confirm(
                 "确认打印！", {
@@ -908,8 +908,8 @@ sap.ui.define([
                 }
             }
             );
-			
-			// PdfCreator.openFile();
+
+            // PdfCreator.openFile();
         },
         _onPrint: async function () {
             var that = this;
@@ -920,10 +920,11 @@ sap.ui.define([
                 MessageToast.show("请先选中要打印的项目");
                 return;
             }
-            if (selectItem.length > 1) {
-                MessageToast.show("请先选中单个要打印的项目");
-                return;
-            }
+            // if (selectItem.length > 1) {
+            //     MessageToast.show("请先选中单个要打印的项目");
+            //     return;
+            // }
+            var printItems = [];
             var RequestParameter = selectItem;
             var req = that.setReq("PP0009", RequestParameter);
             that.globalBusyOn();
@@ -941,7 +942,8 @@ sap.ui.define([
                                     dataitem.yy1_msg = returnitem.msg;
                                     if (dataitem.yy1_flag == 'S') {
                                         dataitem.flagIcon = "Success";
-                                        that.createPdfDoc(returnitem);
+                                        printItems.push(returnitem);
+                                        // that.createPdfDoc(returnitem);
                                     } else {
                                         dataitem.flagIcon = "Error";
                                     }
@@ -952,6 +954,13 @@ sap.ui.define([
                     that.getView().getModel("dataModel").setProperty("/data", data);
                     // MessageToast.show("处理完成，处理明细请查看行信息！");
                     that.globalBusyOff();
+                    if (printItems.length > 0) {
+                        if (printItems.length == 1) {
+                            that.createPdfDoc(printItems[0]);
+                        } else {
+                            that.createPdfDocs(printItems);
+                        }
+                    }
                 } else {
                     MessageToast.show(message);
                     that.globalBusyOff();
@@ -963,17 +972,17 @@ sap.ui.define([
             });
 
         },
-        createPdfDoc:function(data){
-			var scpc = "生产批次：" + data.scpc;
+        createPdfDoc: function (data) {
+            var scpc = "生产批次：" + data.scpc;
             var scjh = "生产计划：" + data.scjh;
             var pzr = "批准人：" + data.pzr;
             var shr = "审核人：" + data.shr;
             var zdr = "制单人：" + data.zdr;
-			var wind = window.open("/sap/bc/ui5_ui5/sap/zui50001/print/print.html","PrintWindow","");
-			// wind.document.write(title);
-			// wind.print();
+            var wind = window.open("/sap/bc/ui5_ui5/sap/zui50001/print/print.html", "PrintWindow", "");
+            // wind.document.write(title);
+            // wind.print();
             // wind.close();
-            wind.onload = function() {
+            wind.onload = function () {
                 wind.document.getElementById('title').textContent = data.title;
                 wind.document.getElementById('scpc').textContent = scpc;
                 wind.document.getElementById('scjh').textContent = scjh;
@@ -990,17 +999,88 @@ sap.ui.define([
                 var filename = "D:/" + data.manufacturingorder + ".pdf";
                 wind.print(); // 触发打印
                 // wind.close(); // 关闭窗口
-                wind.onbeforeprint = function() {
+                wind.onbeforeprint = function () {
                     // 在用户准备打印时的回调函数
                     // 可以在这里设置一些打印前的状态或者进行其他操作
                 };
-                 
-                wind.onafterprint = function() {
+
+                wind.onafterprint = function () {
                     // 在用户完成打印操作后的回调函数
                     // 这里可以关闭浏览器标签或窗口
                     wind.close();
                 };
-              };
+            };
+        },
+        //批量打印
+        createPdfDocs: function (printItems) {
+            var count = 0;
+            var data = printItems[0];
+            var that = this;
+            //首页数据
+            var scpc = "生产批次：" + data.scpc;
+            var scjh = "生产计划：" + data.scjh;
+            var pzr = "批准人：" + data.pzr;
+            var shr = "审核人：" + data.shr;
+            var zdr = "制单人：" + data.zdr;
+            this.wind = null;
+            this.wind = window.open("/sap/bc/ui5_ui5/sap/zui50001/print/print.html", "PrintWindow", "");
+            that.wind.onload = function () {
+                that.wind.document.getElementById('title').textContent = data.title;
+                that.wind.document.getElementById('scpc').textContent = scpc;
+                that.wind.document.getElementById('scjh').textContent = scjh;
+                that.wind.document.getElementById('jhksrq').textContent = data.jhksrq;
+                that.wind.document.getElementById('cpgg').textContent = data.cpgg;
+                that.wind.document.getElementById('yjwgsj').textContent = data.yjwgsj;
+                that.wind.document.getElementById('yltr').innerHTML = data.yltr;
+                that.wind.document.getElementById('fltr').innerHTML = data.fltr;
+                that.wind.document.getElementById('jhscsl').textContent = data.jhscsl;
+                that.wind.document.getElementById('bctr').innerHTML = data.bctr;
+                that.wind.document.getElementById('pzr').textContent = pzr;
+                that.wind.document.getElementById('shr').textContent = shr;
+                that.wind.document.getElementById('zdr').textContent = zdr;
+                printItems.forEach(function (item) {
+                    count = count + 1;
+                    if (count > 1) {
+                        that.addPage(item);
+                    }
+                });
+                that.wind.print(); // 触发打印
+                that.wind.onbeforeprint = function () {
+                    // 在用户准备打印时的回调函数
+                    // 可以在这里设置一些打印前的状态或者进行其他操作
+                };
+                that.wind.onafterprint = function () {
+                    // 在用户完成打印操作后的回调函数
+                    // 这里可以关闭浏览器标签或窗口
+                    that.wind.close();
+                };
+            };
+        },
+        addPage: function (data) {
+            var that = this;
+            var scpc = "生产批次：" + data.scpc;
+            var scjh = "生产计划：" + data.scjh;
+            var pzr = "批准人：" + data.pzr;
+            var shr = "审核人：" + data.shr;
+            var zdr = "制单人：" + data.zdr;
+            var body = that.wind.document.getElementById('content');
+            var scrwd = that.wind.document.createElement('div');
+            scrwd.innerHTML = '<center style="margin-top: 60px;" class="nextpage"><h3>' + data.title + '</h3></center>'
+                + '<center>'
+                + '<table class="tftable noborder"><col style="width: 33%;"><col style="width: 34%;"><col style="width: 33%;">'
+                + '<tr><td>' + scpc + '</td><td>' + scjh + '</td><td>' + data.jhksrq + '</td></tr>'
+                + '</table>'
+                + '<table class="tftable"><col style="width: 10%;"><col style="width: 30%;"><col style="width: 10%;"><col style="width: 30%;">'
+                + '<tr><td>项目</td><td>内容</td><td>项目</td><td>内容</td></tr>'
+                + '<tr height=60px><td>产品规格</td><td>' + data.cpgg + '</td><td>预计完工时间</td><td>' + data.yjwgsj + '</td></tr>'
+                + '<tr height=150px><td>原料投入</td><td>' + data.yltr + '</td><td>辅料投入</td><td>' + data.fltr + '</td></tr>'
+                + '<tr height=150px><td>计划生产数量</td><td>' + data.jhscsl + '</td><td>包材投入</td><td>' + data.bctr + '</td></tr>'
+                + '</table>'
+                + '<table class="tftable noborder"><col style="width: 33%;"><col style="width: 34%;"><col style="width: 33%;">'
+                + '<tr><td>' + pzr + '</td><td>' + shr + '</td><td>' + zdr + '</td></tr>'
+                + '</table>'
+                + '</center>';
+            body.appendChild(scrwd);
         },
         onSendBpm: function () {
             var that = this;
