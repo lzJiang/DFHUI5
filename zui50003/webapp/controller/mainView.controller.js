@@ -37,6 +37,7 @@ sap.ui.define([
             this.getView().setModel(new JSONModel({
                 data: ""
             }), "dataModel");
+            this.getGolbalModel("dataModel").setSizeLimit(10000);
             this.getView().setModel(new JSONModel({
                 currentType: "显示",
                 enableSave: false

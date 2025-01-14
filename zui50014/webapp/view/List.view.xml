@@ -1,0 +1,470 @@
+<mvc:View
+    displayBlock="true"
+    controllerName="zui50014.controller.List"
+    height="100%"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:control="sap.ui.core.Control"
+    xmlns:core="sap.ui.core"
+    xmlns:plugins="sap.m.plugins"
+    xmlns:columnmenu="sap.m.table.columnmenu"
+    xmlns:sap.ui.fl="sap.ui.fl"
+    xmlns:sap.ui.dt="sap.ui.dt"
+    xmlns:vm="sap.ui.fl.variants"
+    xmlns:dnd="sap.ui.core.dnd"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+>
+    <f:DynamicPage
+        id="dynamicPageId"
+        toggleHeaderOnTitleClick="false"
+    >
+        <f:header>
+            <f:DynamicPageHeader
+                id="_IDGenDynamicPageHeader"
+                pinnable="true"
+            >
+                <form:Form
+                    id="_IDGenForm13"
+                    editable="true"
+                >
+                    <form:layout>
+                        <form:ResponsiveGridLayout
+                            id="_IDGenResponsiveGridLayout"
+                            labelSpanL="1"
+                            labelSpanM="1"
+                            emptySpanL="0"
+                            emptySpanM="0"
+                            columnsL="1"
+                            columnsM="1"
+                        />
+                    </form:layout>
+                    <form:formContainers>
+                        <form:FormContainer id="_IDGenFormContainer">
+                            <form:formElements>
+                                <form:FormElement id="_IDGenFormElement3">
+                                    <form:fields>
+                                        <l:HorizontalLayout
+                                            id="_IDGenHorizontalLayout3"
+                                        >
+                                            <ComboBox
+                                                id="_IDGenComboBox1"
+                                                class="myMasterHead"
+                                                selectionChange="onSelectionChange"
+                                                selectedKey="upload"
+                                                items="{
+                                                    path: 'cboxModel>/Collection',
+                                                    sorter: { path: 'text' }
+                                                }"
+                                            >
+                                                <core:Item
+                                                    id="_IDGenItem"
+                                                    key="{cboxModel>key}"
+                                                    text="{cboxModel>text}"
+                                                />
+                                            </ComboBox>
+                                        </l:HorizontalLayout>
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement id="_IDGenFormElement1">
+                                    <form:fields>
+                                        <l:HorizontalLayout
+                                            id="_IDGenHorizontalLayout1"
+                                        >
+                                            <Label
+                                                id="_IDGenLabel36"
+                                                labelFor='ids33'
+                                                text="导入凭证号："
+                                                class="myMasterHead"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Input
+                                                id='ids36'
+                                                width="8rem"
+                                                value="{searchModel>/outbillno}"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Label
+                                                id="_IDGenLabel361"
+                                                labelFor='ids361'
+                                                text="工厂："
+                                                class="myMasterHead"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Input
+                                                id='ids361'
+                                                width="8rem"
+                                                value="{searchModel>/plant}"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Label
+                                                id="_IDGenLabel33"
+                                                labelFor='ids33'
+                                                text="物料："
+                                                class="myMasterHead"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Input
+                                                id='ids33'
+                                                width="8rem"
+                                                value="{searchModel>/material}"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Label
+                                                id="_IDGenLabel4"
+                                                labelFor='ids5'
+                                                text="开始日期："
+                                                class="myMasterHead"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <DatePicker
+                                                id='ids5'
+                                                width="8rem"
+                                                visible="{appModel>/displayType}"
+                                                value="{
+											path: 'searchModel>/created_datestart',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+                                                style: 'short',
+												source: {pattern: 'yyyyMMdd'}
+											}}"
+                                            />
+                                            <Label
+                                                id="_IDGenLabel5"
+                                                labelFor='ids6'
+                                                text="结束日期："
+                                                class="myMasterHead"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <DatePicker
+                                                id='ids6'
+                                                width="8rem"
+                                                visible="{appModel>/displayType}"
+                                                value="{
+											path: 'searchModel>/created_dateend',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+                                                style: 'short',
+												source: {pattern: 'yyyyMMdd'}
+											}}"
+                                            />
+                                        </l:HorizontalLayout>
+                                    </form:fields>
+                                </form:FormElement>
+                                <form:FormElement id="_IDGenFormElement2">
+                                    <form:fields>
+                                        <l:HorizontalLayout
+                                            id="_IDGenHorizontalLayout2"
+                                        >
+                                            <Label
+                                                id="_IDGenLabel133"
+                                                labelFor='ids133'
+                                                text="WMS批次："
+                                                class="myMasterHead"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Input
+                                                id='ids133'
+                                                width="8rem"
+                                                value="{searchModel>/batchwms}"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Label
+                                                id="_IDGenLabel1334"
+                                                labelFor='ids1334'
+                                                text="移动类型："
+                                                class="myMasterHead"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Input
+                                                id='ids1334'
+                                                width="8rem"
+                                                value="{searchModel>/goodsmovementtype}"
+                                                visible="{appModel>/displayType}"
+                                            />
+                                            <Button
+                                                id="_IDGenButton"
+                                                text="查询"
+                                                visible="{appModel>/displayType}"
+                                                icon="sap-icon://search"
+                                                press=".onDataSearch"
+                                                type="Accept"
+                                                class="myMasterHead"
+                                            />
+                                        </l:HorizontalLayout>
+                                    </form:fields>
+                                </form:FormElement>
+                            </form:formElements>
+                        </form:FormContainer>
+                    </form:formContainers>
+                </form:Form>
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <!-- DynamicPage Content -->
+        <f:content>
+            <Table
+                id="dataModelTable"
+                mode="MultiSelect"
+                itemPress="onListItemPress"
+                items="{
+					path: 'dataModel>/data'
+				}"
+                class="sapFDynamicPageAlignContent"
+                autoPopinMode="true"
+                sticky="ColumnHeaders,HeaderToolbar"
+                popinLayout="GridSmall"
+                ariaLabelledBy="title"
+                contextualWidth="Auto"
+                width="auto"
+            >
+                <!-- inset="false" -->
+                <!-- contextualWidth="Auto" -->
+                <!-- width="auto" -->
+                <headerToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbar">
+                        <Title
+                            id="title"
+                            text="批导清单"
+                        />
+                        <!-- <ToolbarSeparator id="_IDGenToolbarSeparator" />
+                        <vm:VariantManagement
+                            id="p13nVm"
+                            for="dataModelTable"
+                        /> -->
+                        <ToolbarSpacer id="_IDGenToolbarSpacer" />
+                        <core:ComponentContainer
+                            id="_IDGenComponentContainer1"
+                            usage="spreadsheetImporter"
+                            visible="{appModel>/uploadType}"
+                            propagateModel="true"
+                            async="true"
+                            settings="{ standalone:true,
+                                        readAllSheets:true,
+                                        hidePreview:true,
+                                        spreadsheetTemplateFile: '{appModel>/downloadurl}',                 
+                                        columns:['pk_no','companycode','accountingdocumenttype','documentdate',
+                                                'postingdate','fiscalperiod','documentheadertext','transactioncurrency',
+                                                'pk_line_no','koart','glaccount','customer','altvrecnclnaccts',
+                                                'documentitemtext','debitcreditcode','amountintransactioncurrency',
+                                                'amountingroupcurrency','housebank','housebankaccount','assignmentreference',
+                                                'reasoncode','profitcenter','salesdocument','salesdocumentitem','salesorganization'],
+                                        componentContainerData:{
+                                            uploadButtonPress:'onUpload',
+                                            buttonText:'导入文件'
+                                            }
+                                        }"
+                        />
+                        <!-- showDownloadButton:false
+                                            hidePreview:true -->
+                        <Button
+                            id="_IDGenButton1"
+                            visible="{appModel>/uploadType}"
+                            text="创建物料凭证"
+                            press=".onSave"
+                        />
+                        <!-- <Button
+                            id="_IDGenButton2"
+                            text="设置"
+                            press="openPersoDialog"
+                            tooltip="Settings"
+                        /> -->
+                        <Button
+                            id="_IDGenButton5"
+                            text="导出创建结果"
+                            press="onExport"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <infoToolbar>
+                    <OverflowToolbar
+                        id="filterInfo"
+                        visible="false"
+                        design="Info"
+                        active="true"
+                        press="onFilterInfoPress"
+                    >
+                        <Text
+                            id="filterInfoText"
+                            wrapping="false"
+                            text="Table filter active"
+                        />
+                        <ToolbarSpacer id="_IDGenToolbarSpacer2" />
+                        <Button
+                            id="_IDGenButton3"
+                            tooltip="Remove All Filters"
+                            icon="sap-icon://decline"
+                            type="Transparent"
+                            press="onClearFilterPress"
+                        />
+                    </OverflowToolbar>
+                </infoToolbar>
+                <dependents>
+                    <columnmenu:Menu id="menu">
+                        <columnmenu:items>
+                            <columnmenu:ActionItem
+                                icon="sap-icon://table-column"
+                                label="Columns"
+                            />
+                        </columnmenu:items>
+                    </columnmenu:Menu>
+                </dependents>
+
+                <dragDropConfig>
+                    <dnd:DragDropInfo
+                        sourceAggregation="columns"
+                        targetAggregation="columns"
+                        dropPosition="Between"
+                        drop="onColumnMove"
+                    />
+                </dragDropConfig>
+
+                <noData>
+                    <IllustratedMessage />
+                </noData>
+
+                <columns>
+                    <Column
+                        id="status_col"
+                        width="auto"
+                        importance="Low"
+                        hAlign="Center"
+                        headerMenu="menu"
+                    >
+                        <Text text="状态" />
+                    </Column>
+                    <Column
+                        id="msg_col"
+                        width="auto"
+                        importance="Low"
+                        hAlign="Center"
+                        headerMenu="menu"
+                    >
+                        <Text text="消息" />
+                    </Column>
+                    <Column
+                        id="outbillno_col"
+                        width="auto"
+                        importance="High"
+                        hAlign="Center"
+                        headerMenu="menu"
+                    >
+                        <Text text="导入凭证号" />
+                    </Column>
+                    <Column
+                        id="purchaseorder_col"
+                        width="auto"
+                        importance="High"
+                        hAlign="Center"
+                        headerMenu="menu"
+                    >
+                        <Text text="SAP物料凭证号" />
+                    </Column>
+                    <Column
+                        id="companycode_col"
+                        width="auto"
+                        importance="High"
+                        hAlign="Center"
+                        headerMenu="menu"
+                    >
+                        <Text text="凭证日期" />
+                    </Column>
+                    <Column
+                        id="purchaseordertype_col"
+                        width="auto"
+                        importance="High"
+                        hAlign="Center"
+                        headerMenu="menu"
+                    >
+                        <Text text="过账日期" />
+                    </Column>
+                    <Column
+                        id="purchaseorderdate_col"
+                        width="auto"
+                        importance="High"
+                        hAlign="Center"
+                        headerMenu="menu"
+                    >
+                        <Text text="工厂" />
+                    </Column>
+                    <Column
+                        id="supplier_col"
+                        width="auto"
+                        importance="High"
+                        hAlign="Center"
+                        headerMenu="menu"
+                    >
+                        <Text text="移动类型" />
+                    </Column>
+                    <Column
+                        id="purchasingorganization_col"
+                        width="auto"
+                        importance="High"
+                        hAlign="Center"
+                        headerMenu="menu"
+                    >
+                        <Text text="导入日期" />
+                    </Column>
+                    <Column
+                        id="purchasinggroup_col"
+                        width="auto"
+                        importance="High"
+                        hAlign="Center"
+                        headerMenu="menu"
+                    >
+                        <Text text="导入用户" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        id="_IDGenColumnListItem"
+                        type="Navigation"
+                    >
+                        <cells>
+                            <ObjectStatus
+                                class="sapUiSmallMarginBottom"
+                                icon="{dataModel>statusicon}"
+                                state="{dataModel>status}"
+                            />
+                            <ObjectIdentifier title="{dataModel>msg}" />
+                            <ObjectIdentifier title="{dataModel>outbillno}" />
+                            <ObjectIdentifier
+                                title="{dataModel>materialdocument}"
+                            />
+                            <ObjectIdentifier
+                                title="{dataModel>documentdate}"
+                            />
+                            <ObjectIdentifier title="{dataModel>postingdate}" />
+                            <ObjectIdentifier title="{dataModel>plant}" />
+                            <ObjectIdentifier
+                                title="{dataModel>goodsmovementtype}"
+                            />
+                            <ObjectIdentifier
+                                title="{dataModel>created_date}"
+                            />
+                            <ObjectIdentifier title="{dataModel>created_by}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+
+        <!-- DynamicPage Footer
+        <f:footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button
+                    type="Accept"
+                    text="Accept"
+                />
+                <Button
+                    type="Reject"
+                    text="Reject"
+                />
+            </OverflowToolbar>
+        </f:footer> -->
+    </f:DynamicPage>
+</mvc:View>

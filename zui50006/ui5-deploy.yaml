@@ -20,6 +20,6 @@ builder:
           name: zui50006
           description: 其他领料单
           package: ZZUI5
-          transport: NMWK900068
+          transport: NMWK900187
         exclude:
           - /test/

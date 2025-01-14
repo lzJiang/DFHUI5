@@ -33,6 +33,14 @@ sap.ui.define([
             var startdate = new Date();
             startdate.setDate(startdate.getDate() - 7);
             var startdatestr = startdate.toISOString().substring(0, 10);
+            var downloadurl = "";
+            if (window.location.host == "my200828.s4hana.sapcloud.cn") {
+                downloadurl = window.location.origin + "/sap/opu/odata4/sap/zui_zt_batch_config_o4/srvd/sap/zui_zt_batch_config_o4/0001/config(UUID=ff065470-9146-1edf-b2b3-9e2696c66e9d,IsActiveEntity=true)/Template"
+            }else if(window.location.host == "my200836.s4hana.sapcloud.cn"){
+                downloadurl = window.location.origin + "/sap/opu/odata4/sap/zui_zt_batch_config_o4/srvd/sap/zui_zt_batch_config_o4/0001/config(UUID=73009b8d-36ff-1eef-b2b3-c5ad9bc6ac3f,IsActiveEntity=true)/Template"
+            }else if(window.location.host == "my200868.s4hana.sapcloud.cn"){
+                downloadurl = window.location.origin + "/sap/opu/odata4/sap/zui_zt_batch_config_o4/srvd/sap/zui_zt_batch_config_o4/0001/config(UUID=21a75e1a-a64d-1eef-b2b3-d3d8b40a0bd5,IsActiveEntity=true)/Template"
+            }
             this.getView().setModel(new JSONModel({
                 postingdatestart: startdatestr
             }), "searchModel");
@@ -43,7 +51,8 @@ sap.ui.define([
                 currentType: "显示",
                 displayType: false,
                 uploadType: true,
-                enableSave: false
+                enableSave: false,
+                downloadurl: downloadurl
             }), "appModel");
             this.getView().setModel(new JSONModel(
                 {

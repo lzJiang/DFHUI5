@@ -825,6 +825,50 @@
                             />
                         </table:template>
                     </table:Column>
+                    <table:Column
+                        id="_IDGenColumn555"
+                        width="10rem"
+                        app:p13nKey="batch_col"
+                        sortProperty="batch"
+                        filterProperty="batch"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel555"
+                            text="WMS批次"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText555"
+                                text="{dataModel>batch}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn56233"
+                        width="6rem"
+                        app:p13nKey="zcy_col"
+                        sortProperty="zcy"
+                        filterProperty="zcy"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel56233"
+                            text="差异"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText56233"
+                                text="{dataModel>zcy}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
                 </table:columns>
             </table:Table>
         </content>

@@ -442,6 +442,16 @@ sap.ui.define([
                     key: "zbz_col",
                     label: "备注",
                     path: "zbz"
+                },
+                {
+                    key: "batch_col",
+                    label: "WMS批次",
+                    path: "batch"
+                },
+                {
+                    key: "zcy_col",
+                    label: "差异",
+                    path: "zcy"
                 }
             ]);
 
@@ -469,7 +479,9 @@ sap.ui.define([
                 "subcontractor_col": "8rem",
                 "zcreate_date_col": "8rem",
                 "zhlbz_col": "10rem",
-                "zbz_col": "10rem"
+                "zbz_col": "10rem",
+                "batch_col": "10rem",
+                "zcy_col": "6rem"
             };
 
             Engine.getInstance().register(oTable, {
@@ -704,6 +716,16 @@ sap.ui.define([
                     type: EdmType.String,
                     label: "创建日期",
                     property: "zcreate_date"
+                },
+                {
+                    type: EdmType.String,
+                    label: "WMS批次",
+                    property: "batch"
+                },
+                {
+                    type: EdmType.String,
+                    label: "差异",
+                    property: "zcy"
                 }
             ];
         },

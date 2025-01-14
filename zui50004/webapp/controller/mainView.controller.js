@@ -731,7 +731,7 @@ sap.ui.define([
             var zcjtext;
             switch (key) {
                 case "1005":
-                    zcj = "CTZJCJ";
+                    zcj = "GTZJCJ";
                     zcjtext = "固体制剂车间";
                     break;
                 case "1006":
@@ -761,7 +761,7 @@ sap.ui.define([
             var zcjtext;
             switch (key) {
                 case "1005":
-                    zcj = "CTZJCJ";
+                    zcj = "GTZJCJ";
                     zcjtext = "固体制剂车间";
                     break;
                 case "1006":

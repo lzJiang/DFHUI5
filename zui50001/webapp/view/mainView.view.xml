@@ -92,8 +92,8 @@
                                             />
                                             <core:Item
                                                 id="_IDGenItem10"
-                                                key="成品包装车间"
-                                                text="成品包装车间"
+                                                key="包装车间"
+                                                text="包装车间"
                                             />
                                             <core:Item
                                                 id="_IDGenItem11"

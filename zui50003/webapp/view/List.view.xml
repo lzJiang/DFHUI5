@@ -213,7 +213,7 @@
                             settings="{ standalone:true,
                                         readAllSheets:true,
                                         hidePreview:true,
-                                        spreadsheetTemplateFile: 'https://my200828.s4hana.sapcloud.cn/sap/opu/odata4/sap/zui_zt_batch_config_o4/srvd/sap/zui_zt_batch_config_o4/0001/config(UUID=13a4cf16-9e05-1edf-ae8f-139ff5eece5d,IsActiveEntity=true)/Template',                 
+                                        spreadsheetTemplateFile: '{appModel>/downloadurl}',                 
                                         columns:['pk_no','companycode','accountingdocumenttype','documentdate',
                                                 'postingdate','fiscalperiod','documentheadertext','transactioncurrency',
                                                 'pk_line_no','koart','glaccount','customer','altvrecnclnaccts',
