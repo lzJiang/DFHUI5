@@ -396,7 +396,7 @@
                                         <m:cells>
                                             <m:ObjectIdentifier
                                                 id="_IDGenObjectIdentifier3"
-                                                text="{detailModel>outbillno}"
+                                                text="{detailModel>outbillitemno}"
                                             />
                                             <m:ObjectIdentifier
                                                 id="_IDGenObjectIdentifier4"
