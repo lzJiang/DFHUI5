@@ -216,7 +216,7 @@
                                         spreadsheetTemplateFile: '{appModel>/downloadurl}',                 
                                         columns:['pk_no','companycode','accountingdocumenttype','documentdate',
                                                 'postingdate','fiscalperiod','documentheadertext','transactioncurrency',
-                                                'pk_line_no','koart','glaccount','customer','altvrecnclnaccts',
+                                                'pk_line_no_1','koart','glaccount','customer','altvrecnclnaccts',
                                                 'documentitemtext','debitcreditcode','amountintransactioncurrency',
                                                 'amountingroupcurrency','housebank','housebankaccount','assignmentreference',
                                                 'reasoncode','profitcenter','salesdocument','salesdocumentitem','salesorganization'],

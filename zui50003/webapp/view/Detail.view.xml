@@ -263,6 +263,17 @@
                             >
                                 <m:columns>
                                     <m:Column
+                                        width="8rem"
+                                        importance="High"
+                                        id="_IDGenColumn5111"
+                                        hAlign="Center"
+                                    >
+                                        <m:Text
+                                            id="_IDGenText1111"
+                                            text="SAP凭证号"
+                                        />
+                                    </m:Column>
+                                    <m:Column
                                         width="5rem"
                                         importance="High"
                                         id="_IDGenColumn5"
@@ -307,6 +318,17 @@
                                         />
                                     </m:Column>
                                     <m:Column
+                                        id="_IDGenColumn4"
+                                        width="8rem"
+                                        importance="High"
+                                        hAlign="Center"
+                                    >
+                                        <m:Text
+                                            id="_IDGenText3"
+                                            text="供应商编码"
+                                        />
+                                    </m:Column>
+                                    <m:Column
                                         width="8rem"
                                         importance="High"
                                         id="_IDGenColumn9"
@@ -326,7 +348,7 @@
                                     >
                                         <m:Text
                                             id="_IDGenText16"
-                                            text="项目文本"
+                                            text="经销商名称"
                                         />
                                     </m:Column>
                                     <m:Column
@@ -385,6 +407,17 @@
                                         />
                                     </m:Column>
                                     <m:Column
+                                        width="8rem"
+                                        importance="Low"
+                                        id="_IDGenColumn151"
+                                        hAlign="Center"
+                                    >
+                                        <m:Text
+                                            id="_IDGenText211"
+                                            text="成本中心"
+                                        />
+                                    </m:Column>
+                                    <m:Column
                                         width="6rem"
                                         importance="Low"
                                         id="_IDGenColumn16"
@@ -392,10 +425,42 @@
                                     >
                                         <m:Text
                                             id="_IDGenText22"
-                                            text="分配编号"
+                                            text="会员ID"
                                         />
                                     </m:Column>
-
+                                    <m:Column
+                                        id="_IDGenColumn1"
+                                        width="6rem"
+                                        importance="Low"
+                                        hAlign="Center"
+                                    >
+                                        <m:Text
+                                            id="_IDGenText"
+                                            text="会员名称"
+                                        />
+                                    </m:Column>
+                                    <m:Column
+                                        id="_IDGenColumn2"
+                                        width="6rem"
+                                        importance="Low"
+                                        hAlign="Center"
+                                    >
+                                        <m:Text
+                                            id="_IDGenText1"
+                                            text="经销商ID"
+                                        />
+                                    </m:Column>
+                                    <m:Column
+                                        id="_IDGenColumn3"
+                                        width="6rem"
+                                        importance="Low"
+                                        hAlign="Center"
+                                    >
+                                        <m:Text
+                                            id="_IDGenText2"
+                                            text="费用所属年月"
+                                        />
+                                    </m:Column>
                                     <m:Column
                                         width="6rem"
                                         importance="Low"
@@ -457,9 +522,13 @@
                                         id="_IDGenColumnListItem1"
                                     >
                                         <m:cells>
+                                           <m:ObjectIdentifier
+                                                id="_IDGenObjectIdentifier33"
+                                                text="{detailModel>accountingdocument}"
+                                            />
                                             <m:ObjectIdentifier
                                                 id="_IDGenObjectIdentifier3"
-                                                text="{detailModel>pk_line_no}"
+                                                text="{detailModel>pk_line_no_1}"
                                             />
                                             <m:ObjectIdentifier
                                                 id="_IDGenObjectIdentifier4"
@@ -472,6 +541,10 @@
                                             <m:ObjectIdentifier
                                                 id="_IDGenObjectIdentifier6"
                                                 text="{detailModel>customer}"
+                                            />
+                                            <m:ObjectIdentifier
+                                                id="_IDGenObjectIdentifier"
+                                                text="{detailModel>vendor}"
                                             />
                                             <m:ObjectIdentifier
                                                 id="_IDGenObjectIdentifier7"
@@ -502,8 +575,24 @@
                                                 text="{detailModel>housebankaccount}"
                                             />
                                             <m:ObjectIdentifier
+                                                id="_IDGenObjectIdentifier131"
+                                                text="{detailModel>costcenter}"
+                                            />
+                                            <m:ObjectIdentifier
                                                 id="_IDGenObjectIdentifier14"
                                                 text="{detailModel>assignmentreference}"
+                                            />
+                                            <m:ObjectIdentifier
+                                                id="_IDGenObjectIdentifier146"
+                                                text="{detailModel>reference3idbybusinesspartner}"
+                                            />
+                                            <m:ObjectIdentifier
+                                                id="_IDGenObjectIdentifier144"
+                                                text="{detailModel>reference1idbybusinesspartner}"
+                                            />
+                                            <m:ObjectIdentifier
+                                                id="_IDGenObjectIdentifier145"
+                                                text="{detailModel>reference2idbybusinesspartner}"
                                             />
                                             <m:ObjectIdentifier
                                                 id="_IDGenObjectIdentifier15"

@@ -20,6 +20,6 @@ builder:
           name: ZZTODATACONFIG
           description: UI5通用ODATA接口配置
           package: ZZFICO
-          transport: NMWK900187
+          transport: NMWK900376
         exclude:
           - /test/

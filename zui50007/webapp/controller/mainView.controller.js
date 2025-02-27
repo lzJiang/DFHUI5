@@ -284,6 +284,21 @@ sap.ui.define([
                     path: "zjname"
                 },
                 {
+                    key: "materialmfadate1_col",
+                    label: "组件生产日期",
+                    path: "materialmfadate1"
+                },
+                {
+                    key: "storage_col",
+                    label: "是否合格",
+                    path: "storage"
+                },
+                {
+                    key: "versionnumber_col",
+                    label: "组件包材版本",
+                    path: "versionnumber"
+                },
+                {
                     key: "zjunit_col",
                     label: "单位",
                     path: "zjunit"
@@ -322,6 +337,31 @@ sap.ui.define([
                     key: "zcreate_date_col",
                     label: "创建日期",
                     path: "zcreate_date"
+                },
+                {
+                    key: "manufacturingorder_col",
+                    label: "生产任务单",
+                    path: "manufacturingorder"
+                },
+                {
+                    key: "yy1_mfgbatch_ord_col",
+                    label: "生产批次",
+                    path: "yy1_mfgbatch_ord"
+                },
+                {
+                    key: "cp_col",
+                    label: "产品编码",
+                    path: "cp"
+                },
+                {
+                    key: "cpname_col",
+                    label: "产品名称",
+                    path: "cpname"
+                },
+                {
+                    key: "yy1_mfgdate_col",
+                    label: "制造日期",
+                    path: "yy1_mfgdate"
                 }
             ]);
 
@@ -332,6 +372,9 @@ sap.ui.define([
                 "productionplant_col": "4rem",
                 "zj_col": "6rem",
                 "zjname_col": "10rem",
+                "materialmfadate1_col": "10rem",
+                "storage_col": "8rem",
+                "versionnumber_col": "8rem",
                 "zjunit_col": "4rem",
                 "requestedqty_col": "6rem",
                 "batch_col": "10rem",
@@ -339,7 +382,12 @@ sap.ui.define([
                 "storagelocationto_col": "10rem",
                 "storagelocationname_col": "6rem",
                 "sykc_col": "8rem",
-                "zcreate_date_col": "8rem"
+                "zcreate_date_col": "8rem",
+                "manufacturingorder_col": "8rem",
+                "yy1_mfgbatch_ord_col": "8rem",
+                "cp_col": "8rem",
+                "cpname_col": "8rem",
+                "yy1_mfgdate_col": "8rem"
             };
 
             Engine.getInstance().register(oTable, {
@@ -517,6 +565,21 @@ sap.ui.define([
                 },
                 {
                     type: EdmType.String,
+                    label: "是否合格",
+                    property: "storage"
+                },
+                {
+                    type: EdmType.String,
+                    label: "组件生产日期",
+                    property: "materialmfadate1"
+                },
+                {
+                    type: EdmType.String,
+                    label: "组件包材版本",
+                    property: "versionnumber"
+                },
+                {
+                    type: EdmType.String,
                     label: "单位",
                     property: "zjunit"
                 },
@@ -554,6 +617,31 @@ sap.ui.define([
                     type: EdmType.String,
                     label: "创建日期",
                     property: "zcreate_date"
+                },
+                {
+                    type: EdmType.String,
+                    label: "生产任务单",
+                    property: "manufacturingorder"
+                },
+                {
+                    type: EdmType.String,
+                    label: "生产批次",
+                    property: "yy1_mfgbatch_ord"
+                },
+                {
+                    type: EdmType.String,
+                    label: "产品编码",
+                    property: "cp"
+                },
+                {
+                    type: EdmType.String,
+                    label: "产品名称",
+                    property: "cpname"
+                },
+                {
+                    type: EdmType.String,
+                    label: "制造日期",
+                    property: "yy1_mfgdate"
                 }
             ];
         },
@@ -734,6 +822,70 @@ sap.ui.define([
             this.getView().getModel("dataModel").setProperty(path, oSelectedItem.getTitle());
             var item = this.getView().getModel("dataModel").getProperty(this._helppath);
             this._onItemSearch(item, this._helppath);
+        },
+        onmanufacturingorderChange: function (oEvent) {
+            var selectItem = oEvent.getSource().oParent;
+            var path = selectItem.getBindingContext("dataModel").getPath();
+            var item = this.getView().getModel("dataModel").getProperty(path);
+            this._onmanufacturingorderSearch(item, path);
+        },
+        onmanufacturingorderChange: function (oEvent) {
+            var selectItem = oEvent.getSource().oParent;
+            var path = selectItem.getBindingContext("dataModel").getPath();
+            var item = this.getView().getModel("dataModel").getProperty(path);
+            this._onmanufacturingorderSearch(item, path);
+        },
+        _onmanufacturingorderSearch: async function (item, path) {
+            var that = this;
+            var searchData = this.getView().getModel("searchModel").oData;
+            var setitem = {
+                yy1_mfgbatch_ord: "",
+                cp: "",
+                cpname: "",
+                yy1_mfgdate: ""
+            }
+            if (this.isEmpty(item.manufacturingorder)) {
+                return;
+            }
+            var RequestParameter = {
+                manufacturingorder: this.isEmpty(item.manufacturingorder) ? "" : item.manufacturingorder
+            };
+            var req = that.setReq("PP0023", RequestParameter);
+            await odataUtil.create(that._ODataModel, req).then(function (result) {
+                var type = result.Returncode;
+                var message = result.Returnmessage;
+                var returnResult = result.Returnresult;
+                if ("S" == type) {
+                    var data = JSON.parse(returnResult);
+                    if (!that.isEmpty(data.yy1_mfgbatch_ord)) {
+                        setitem.yy1_mfgbatch_ord = data.yy1_mfgbatch_ord;
+                    };
+                    if (!that.isEmpty(data.cp)) {
+                        setitem.cp = data.cp;
+                    };
+                    if (!that.isEmpty(data.cpname)) {
+                        setitem.cpname = data.cpname;
+                    };
+                    if (!that.isEmpty(data.yy1_mfgdate)) {
+                        setitem.yy1_mfgdate = data.yy1_mfgdate;
+                    };
+                }
+                item.yy1_mfgbatch_ord = setitem.yy1_mfgbatch_ord;
+                item.cp = setitem.cp;
+                item.cpname = setitem.cpname;
+                item.yy1_mfgdate = setitem.yy1_mfgdate;
+                that.getView().getModel("dataModel").setProperty(path, item);
+            }).catch(function (err) {
+                item.yy1_mfgbatch_ord = setitem.yy1_mfgbatch_ord;
+                item.cp = setitem.cp;
+                item.cpname = setitem.cpname;
+                item.yy1_mfgdate = setitem.yy1_mfgdate;
+                that.getView().getModel("dataModel").setProperty(path, item);
+                MessageToast.show("接口调用异常，请联系管理员！");
+                console.log(err);
+            });
+
         }
+
     });
 });

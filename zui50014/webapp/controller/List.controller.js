@@ -179,6 +179,8 @@ sap.ui.define([
                             item.inventoryspecialstocktype = that.getExcelCellData(payload[index].inventoryspecialstocktype);
                             item.customer = that.getExcelCellData(payload[index].customer);
                             item.supplier = that.getExcelCellData(payload[index].supplier);
+                            item.costcenter = that.getExcelCellData(payload[index].costcenter);
+                            item.wbselement = that.getExcelCellData(payload[index].wbselement);
                             item.purchaseorder = that.getExcelCellData(payload[index].purchaseorder);
                             item.purchaseorderitem = that.getExcelCellData(payload[index].purchaseorderitem);
                             item.manufacturingorder = that.getExcelCellData(payload[index].manufacturingorder);

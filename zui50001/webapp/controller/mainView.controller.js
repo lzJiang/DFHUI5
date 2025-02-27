@@ -44,6 +44,7 @@ sap.ui.define([
             this.getView().setModel(new JSONModel({
                 data: ""
             }), "dataModel");
+            this.getView().getModel("dataModel").setSizeLimit(10000);
             this.getView().setModel(new JSONModel({
                 currentType: "显示",
                 enableSave: false
@@ -411,7 +412,7 @@ sap.ui.define([
             if (item.yy1_approvestatus == "N") {
                 item.status = item.status + "【BPM拒绝】";
             }
-            if (item.yy1_approvestatus == "Y") {
+            if (item.yy1_approvestatus == "Y" && !this.isEmpty(item.yy1_check)) {
                 item.status = item.status + "【BPM通过】";
             }
             if (item.yy1_sendwms == "X") {
@@ -438,7 +439,7 @@ sap.ui.define([
                 newObj = [];
             }
             for (var key in obj) {
-                var val = obj[key];
+                var val = obj[key] == null ? "":obj[key];
                 //newObj[key] = typeof val === 'object' ? arguments.callee(val) : val; //arguments.callee 在哪一个函数中运行，它就代表哪个函数, 一般用在匿名函数中。  
                 newObj[key] = typeof val === 'object' ? cloneObj(val) : val;
             }

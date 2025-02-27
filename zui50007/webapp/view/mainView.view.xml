@@ -11,6 +11,7 @@
     xmlns:sap.ui.fl="sap.ui.fl"
     xmlns:sap.ui.dt="sap.ui.dt"
     xmlns:vm="sap.ui.fl.variants"
+    xmlns:r="sap.ui.table.rowmodes"
 >
     <Page
         id="page"
@@ -64,7 +65,6 @@
             <table:Table
                 id="_IDGenTable"
                 rows="{dataModel>/data}"
-                rowMode="Auto"
                 selectionMode="MultiToggle"
                 paste="onPaste"
                 ariaLabelledBy="title"
@@ -74,6 +74,12 @@
                 columnMove="onColumnMove"
                 sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex"
             >
+                <table:rowMode>
+                    <r:Interactive
+                        id="_IDGenFixed"
+                        rowCount="12"
+                    />
+                </table:rowMode>
                 <table:extension>
                     <OverflowToolbar
                         id="_IDGenOverflowToolbar"
@@ -284,6 +290,89 @@
                                 id="_IDGenText52"
                                 text="{dataModel>zjname}"
                                 wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column
+                        id="_IDGenColumn16"
+                        width="10rem"
+                        app:p13nKey="materialmfadate1_col"
+                        sortProperty="materialmfadate1"
+                        filterProperty="materialmfadate1"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel23"
+                            text="组件生产日期"
+                        />
+                        <table:template>
+                            <DatePicker
+                                id='_IDGenText16'
+                                value="{    path: 'dataModel>materialmfadate1',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+                                                style: 'short',
+												source: {pattern: 'yyyy-MM-dd'}
+											}}"
+                            />
+                        </table:template>
+                    </table:Column>
+
+                    <!-- <table:Column
+                        id="_IDGenColumn2"
+                        width="8rem"
+                        app:p13nKey="storage_col"
+                        sortProperty="storage"
+                        filterProperty="storage"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel10"
+                            text="是否合格"
+                        />
+                        <table:template>
+                            <Select
+                                id="_IDGenSelect"
+                                forceSelection="false"
+                                selectedKey="{dataModel>storage}"
+                            >
+                                <core:Item
+                                    id="_IDGenItem1"
+                                    key="合格"
+                                    text="合格"
+                                />
+                                <core:Item
+                                    id="_IDGenItem7"
+                                    key="不合格"
+                                    text="不合格"
+                                />
+                            </Select>
+                        </table:template>
+                    </table:Column> -->
+
+                    <table:Column
+                        id="_IDGenColumn8"
+                        width="8rem"
+                        app:p13nKey="versionnumber_col"
+                        sortProperty="versionnumber"
+                        filterProperty="versionnumber"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel8"
+                            text="组件包材版本"
+                        />
+                        <table:template>
+                            <Input
+                                id="_IDGenInput2"
+                                value="{dataModel>versionnumber}"
                             />
                         </table:template>
                     </table:Column>
@@ -506,6 +595,116 @@
                             <Text
                                 id="_IDGenText563"
                                 text="{dataModel>zcreate_date}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn3"
+                        width="8rem"
+                        app:p13nKey="manufacturingorder_col"
+                        sortProperty="manufacturingorder"
+                        filterProperty="manufacturingorder"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel1"
+                            text="生产任务单"
+                        />
+                        <table:template>
+                            <Input
+                                id="_IDGenInput1"
+                                value="{dataModel>manufacturingorder}"
+                                change="onmanufacturingorderChange"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn4"
+                        width="8rem"
+                        app:p13nKey="yy1_mfgbatch_ord_col"
+                        sortProperty="yy1_mfgbatch_ord"
+                        filterProperty="yy1_mfgbatch_ord"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel3"
+                            text="生产批次"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText1"
+                                text="{dataModel>yy1_mfgbatch_ord}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn5"
+                        width="8rem"
+                        app:p13nKey="cp_col"
+                        sortProperty="cp"
+                        filterProperty="cp"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel4"
+                            text="产品编码"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText2"
+                                text="{dataModel>cp}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn6"
+                        width="8rem"
+                        app:p13nKey="cpname_col"
+                        sortProperty="cpname"
+                        filterProperty="cpname"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel5"
+                            text="产品名称"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText3"
+                                text="{dataModel>cpname}"
+                                wrapping="false"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn7"
+                        width="8rem"
+                        app:p13nKey="yy1_mfgdate_col"
+                        sortProperty="yy1_mfgdate"
+                        filterProperty="yy1_mfgdate"
+                        headerMenu="menu"
+                        resizable="true"
+                        autoResizable="true"
+                    >
+                        <Label
+                            id="_IDGenLabel6"
+                            text="制造日期"
+                        />
+                        <table:template>
+                            <Text
+                                id="_IDGenText4"
+                                text="{dataModel>yy1_mfgdate}"
                                 wrapping="false"
                             />
                         </table:template>

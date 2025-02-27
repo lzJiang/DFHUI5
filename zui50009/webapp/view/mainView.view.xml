@@ -11,6 +11,7 @@
     xmlns:sap.ui.fl="sap.ui.fl"
     xmlns:sap.ui.dt="sap.ui.dt"
     xmlns:vm="sap.ui.fl.variants"
+    xmlns:r="sap.ui.table.rowmodes"
 >
     <Page
         id="page"
@@ -93,7 +94,7 @@
                                         />
                                         <Select
                                             id="_IDGenSelectSearch2"
-                                            width="8rem"
+                                            width="10rem"
                                             forceSelection="false"
                                             selectedKey="{searchModel>/zllzt}"
                                         >
@@ -183,11 +184,43 @@
                                             text="车间："
                                             class="myMasterHead"
                                         />
-                                        <Input
-                                            id='ids4'
-                                            width="8rem"
-                                            value="{searchModel>/cpname}"
-                                        />
+                                        <Select
+                                            id="_IDGenSelect"
+                                            width="10rem"
+                                            forceSelection="false"
+                                            selectedKey="{searchModel>/zcjtext}"
+                                        >
+                                            <core:Item
+                                                id="_IDGenItem31"
+                                                key=""
+                                                text=""
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem3"
+                                                key="固体制剂车间"
+                                                text="固体制剂车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem4"
+                                                key="包装车间"
+                                                text="包装车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem5"
+                                                key="红曲车间"
+                                                text="红曲车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem6"
+                                                key="口服液车间"
+                                                text="口服液车间"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem12"
+                                                key="软胶囊车间"
+                                                text="软胶囊车间"
+                                            />
+                                        </Select>
                                         <Button
                                             id="_IDGenButtonre"
                                             text="重置"
@@ -216,7 +249,6 @@
             <table:Table
                 id="_IDGenTable"
                 rows="{dataModel>/data}"
-                rowMode="Auto"
                 selectionMode="MultiToggle"
                 paste="onPaste"
                 ariaLabelledBy="title"
@@ -226,6 +258,12 @@
                 columnMove="onColumnMove"
                 sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex"
             >
+                <table:rowMode>
+                    <r:Interactive
+                        id="_IDGenFixed"
+                        rowCount="12"
+                    />
+                </table:rowMode>
                 <table:extension>
                     <OverflowToolbar
                         id="_IDGenOverflowToolbar"

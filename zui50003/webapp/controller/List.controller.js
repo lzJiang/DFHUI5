@@ -34,8 +34,9 @@ sap.ui.define([
             startdate.setDate(startdate.getDate() - 7);
             var startdatestr = startdate.toISOString().substring(0, 10);
             var downloadurl = "";
+            //https://my200828.s4hana.sapcloud.cn/sap/opu/odata4/sap/zui_zt_batch_config_o4/srvd/sap/zui_zt_batch_config_o4/0001/config(UUID=13a4cf16-9e05-1edf-ae8f-139ff5eece5d,IsActiveEntity=true)/Template
             if (window.location.host == "my200828.s4hana.sapcloud.cn") {
-                downloadurl = window.location.origin + "/sap/opu/odata4/sap/zui_zt_batch_config_o4/srvd/sap/zui_zt_batch_config_o4/0001/config(UUID=ff065470-9146-1edf-b2b3-9e2696c66e9d,IsActiveEntity=true)/Template"
+                downloadurl = window.location.origin + "/sap/opu/odata4/sap/zui_zt_batch_config_o4/srvd/sap/zui_zt_batch_config_o4/0001/config(UUID=13a4cf16-9e05-1edf-ae8f-139ff5eece5d,IsActiveEntity=true)/Template"
             }else if(window.location.host == "my200836.s4hana.sapcloud.cn"){
                 downloadurl = window.location.origin + "/sap/opu/odata4/sap/zui_zt_batch_config_o4/srvd/sap/zui_zt_batch_config_o4/0001/config(UUID=73009b8d-36ff-1eef-b2b3-c5ad9bc6ac3f,IsActiveEntity=true)/Template"
             }else if(window.location.host == "my200868.s4hana.sapcloud.cn"){
@@ -47,6 +48,7 @@ sap.ui.define([
             this.setGolbalModel(new JSONModel({
                 data: ""
             }), "dataModel");
+            this.getGolbalModel("dataModel").setSizeLimit(10000);
             this.getView().setModel(new JSONModel({
                 currentType: "显示",
                 displayType: false,
@@ -153,7 +155,7 @@ sap.ui.define([
                 if (payload[index].__rowNum__ < 2) {
                     continue;
                 }
-                if (payload[index].pk_no.sheetName == "HEADER") {
+                if (!this.isEmpty(payload[index].pk_no) && payload[index].pk_no.sheetName == "HEADER") {
                     let head = {};
                     head.pk_no = that.getExcelCellData(payload[index].pk_no);
                     head.companycode = that.getExcelCellData(payload[index].companycode);
@@ -175,14 +177,16 @@ sap.ui.define([
                         if (payload[index].__rowNum__ < 2) {
                             continue;
                         }
-                        if (payload[index].pk_no.sheetName == "ITEM"
+                        if (!that.isEmpty(payload[index].pk_no) 
+                            && payload[index].pk_no.sheetName == "ITEM"
                             && payload[index].pk_no.formattedValue == head.pk_no) {
                             let item = {};
                             item.pk_no = that.getExcelCellData(payload[index].pk_no);
-                            item.pk_line_no = that.getExcelCellData(payload[index].pk_line_no);
+                            item.pk_line_no_1 = that.getExcelCellData(payload[index].pk_line_no_1);
                             item.koart = that.getExcelCellData(payload[index].koart);
                             item.glaccount = that.getExcelCellData(payload[index].glaccount);
                             item.customer = that.getExcelCellData(payload[index].customer);
+                            item.vendor = that.getExcelCellData(payload[index].vendor);
                             item.altvrecnclnaccts = that.getExcelCellData(payload[index].altvrecnclnaccts);
                             item.documentitemtext = that.getExcelCellData(payload[index].documentitemtext);
                             item.debitcreditcode = that.getExcelCellData(payload[index].debitcreditcode);
@@ -196,6 +200,10 @@ sap.ui.define([
                             item.salesdocument = that.getExcelCellData(payload[index].salesdocument);
                             item.salesdocumentitem = that.getExcelCellData(payload[index].salesdocumentitem);
                             item.salesorganization = that.getExcelCellData(payload[index].salesorganization);
+                            item.reference3idbybusinesspartner = that.getExcelCellData(payload[index].reference3idbybusinesspartner);
+                            item.reference1idbybusinesspartner = that.getExcelCellData(payload[index].reference1idbybusinesspartner);
+                            item.reference2idbybusinesspartner = that.getExcelCellData(payload[index].reference2idbybusinesspartner);
+                            item.costcenter = that.getExcelCellData(payload[index].costcenter);
                             head.item.push(item)
                             if (item.debitcreditcode == 'S') {
                                 head.jxje = head.jxje + item.amountintransactioncurrency;

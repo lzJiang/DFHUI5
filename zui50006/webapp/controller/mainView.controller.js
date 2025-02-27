@@ -312,6 +312,11 @@ sap.ui.define([
                     key: "zcreate_date_col",
                     label: "创建日期",
                     path: "zcreate_date"
+                },
+                {
+                    key: "manufacturingorder_col",
+                    label: "创建日期",
+                    path: "manufacturingorder"
                 }
             ]);
 
@@ -327,7 +332,8 @@ sap.ui.define([
                 "zcjtext_col": "6rem",
                 "storagelocationname_col": "6rem",
                 "sykc_col": "8rem",
-                "zcreate_date_col": "8rem"
+                "zcreate_date_col": "8rem",
+                "manufacturingorder_col": "8rem"
             };
 
             Engine.getInstance().register(oTable, {
@@ -532,6 +538,11 @@ sap.ui.define([
                     type: EdmType.String,
                     label: "创建日期",
                     property: "zcreate_date"
+                },
+                {
+                    type: EdmType.String,
+                    label: "生产任务单",
+                    property: "manufacturingorder_col"
                 }
             ];
         },

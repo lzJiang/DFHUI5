@@ -11,6 +11,7 @@
     xmlns:sap.ui.fl="sap.ui.fl"
     xmlns:sap.ui.dt="sap.ui.dt"
     xmlns:vm="sap.ui.fl.variants"
+    xmlns:r="sap.ui.table.rowmodes"
 >
     <Page
         id="page"
@@ -64,7 +65,6 @@
             <table:Table
                 id="_IDGenTable"
                 rows="{dataModel>/data}"
-                rowMode="Auto"
                 selectionMode="MultiToggle"
                 paste="onPaste"
                 ariaLabelledBy="title"
@@ -74,6 +74,12 @@
                 columnMove="onColumnMove"
                 sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex"
             >
+                <table:rowMode>
+                    <r:Interactive
+                        id="_IDGenFixed"
+                        rowCount="12"
+                    />
+                </table:rowMode>
                 <table:extension>
                     <OverflowToolbar
                         id="_IDGenOverflowToolbar"
@@ -447,6 +453,27 @@
                         </table:template>
                     </table:Column>
                 </table:columns>
+                <table:Column
+                    id="_IDGenColumn3"
+                    width="8rem"
+                    app:p13nKey="manufacturingorder_col"
+                    sortProperty="manufacturingorder"
+                    filterProperty="manufacturingorder"
+                    headerMenu="menu"
+                    resizable="true"
+                    autoResizable="true"
+                >
+                    <Label
+                        id="_IDGenLabel1111"
+                        text="生产任务单"
+                    />
+                    <table:template>
+                        <Input
+                            id="_IDGenInput1111"
+                            value="{dataModel>manufacturingorder}"
+                        />
+                    </table:template>
+                </table:Column>
             </table:Table>
         </content>
     </Page>

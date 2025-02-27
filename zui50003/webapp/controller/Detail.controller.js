@@ -58,6 +58,7 @@ sap.ui.define([
 			});
 			let data = this.getGolbalModel("dataModel").getProperty(spath);
 			this.getView().setModel(new JSONModel(data), "detailModel");
+			this.getView().getModel("detailModel").setSizeLimit(10000);
 		}
 	});
 });

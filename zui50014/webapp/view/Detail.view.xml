@@ -299,6 +299,28 @@
                                         />
                                     </m:Column>
                                     <m:Column
+                                        id="_IDGenColumn3"
+                                        width="8rem"
+                                        importance="High"
+                                        hAlign="Center"
+                                    >
+                                        <m:Text
+                                            id="_IDGenText4"
+                                            text="成本中心"
+                                        />
+                                    </m:Column>
+                                    <m:Column
+                                        id="_IDGenColumn4"
+                                        width="8rem"
+                                        importance="High"
+                                        hAlign="Center"
+                                    >
+                                        <m:Text
+                                            id="_IDGenText24"
+                                            text="WBS元素"
+                                        />
+                                    </m:Column>
+                                    <m:Column
                                         width="8rem"
                                         importance="High"
                                         id="_IDGenColumn9"
@@ -472,6 +494,14 @@
                                             <m:ObjectIdentifier
                                                 id="_IDGenObjectIdentifier71"
                                                 text="{detailModel>supplier}"
+                                            />
+                                            <m:ObjectIdentifier
+                                                id="_IDGenObjectIdentifier711"
+                                                text="{detailModel>costcenter}"
+                                            />
+                                            <m:ObjectIdentifier
+                                                id="_IDGenObjectIdentifier712"
+                                                text="{detailModel>wbselement}"
                                             />
                                             <m:ObjectIdentifier
                                                 id="_IDGenObjectIdentifier8"

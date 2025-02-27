@@ -11,6 +11,7 @@
     xmlns:sap.ui.fl="sap.ui.fl"
     xmlns:sap.ui.dt="sap.ui.dt"
     xmlns:vm="sap.ui.fl.variants"
+    xmlns:r="sap.ui.table.rowmodes"
 >
     <Page
         id="page"
@@ -46,7 +47,8 @@
                                             text="工厂："
                                             class="myMasterHead"
                                         />
-                                        <Select id="_IDGenSelect"
+                                        <Select
+                                            id="_IDGenSelect"
                                             width="15rem"
                                             forceSelection="true"
                                             selectedKey="{searchModel>/productionplant}"
@@ -179,7 +181,6 @@
             <table:Table
                 id="_IDGenTable"
                 rows="{dataModel>/data}"
-                rowMode="Auto"
                 selectionMode="MultiToggle"
                 paste="onPaste"
                 ariaLabelledBy="title"
@@ -189,6 +190,12 @@
                 columnMove="onColumnMove"
                 sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex"
             >
+                <table:rowMode>
+                    <r:Interactive
+                        id="_IDGenFixed"
+                        rowCount="12"
+                    />
+                </table:rowMode>
                 <table:extension>
                     <OverflowToolbar
                         id="_IDGenOverflowToolbar"
@@ -438,7 +445,7 @@
                                 editable="{dataModel>editable}"
                             />
                         </table:template>
-                    </table:Column>    
+                    </table:Column>
                     <table:Column
                         id="_IDGenColumn9"
                         width="10rem"
@@ -493,7 +500,7 @@
                             />
                         </table:template>
                     </table:Column>
-                    
+
                     <table:Column
                         id="_IDGenColumn51"
                         width="6rem"

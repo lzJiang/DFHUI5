@@ -11,6 +11,7 @@
     xmlns:sap.ui.fl="sap.ui.fl"
     xmlns:sap.ui.dt="sap.ui.dt"
     xmlns:vm="sap.ui.fl.variants"
+    xmlns:r="sap.ui.table.rowmodes"
 >
     <Page
         id="page"
@@ -157,7 +158,6 @@
             <table:Table
                 id="_IDGenTable"
                 rows="{dataModel>/data}"
-                rowMode="Auto"
                 selectionMode="MultiToggle"
                 paste="onPaste"
                 ariaLabelledBy="title"
@@ -167,6 +167,12 @@
                 columnMove="onColumnMove"
                 sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex"
             >
+                <table:rowMode>
+                    <r:Interactive
+                        id="_IDGenFixed"
+                        rowCount="12"
+                    />
+                </table:rowMode>
                 <table:extension>
                     <OverflowToolbar
                         id="_IDGenOverflowToolbar"
