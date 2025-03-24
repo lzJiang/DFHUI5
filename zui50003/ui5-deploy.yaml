@@ -20,6 +20,6 @@ builder:
           name: zui50003
           description: 生产任务单管理
           package: ZZUI5
-          transport: NMWK900376
+          transport: NMWK900462
         exclude:
           - /test/

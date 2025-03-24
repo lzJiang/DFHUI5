@@ -202,6 +202,69 @@
                                             width="8rem"
                                             value="{searchModel>/productname}"
                                         />
+                                        <Label
+                                            id="_IDGenLabel344"
+                                            labelFor='ids344'
+                                            text="订单状态："
+                                            class="myMasterHead"
+                                        />
+                                        <Select
+                                            id="_IDGenSelectSearch22"
+                                            width="10rem"
+                                            forceSelection="false"
+                                            selectedKey="{searchModel>/status}"
+                                        >
+                                            <core:Item
+                                                id="_IDGenItem1"
+                                                key=""
+                                                text=""
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem4"
+                                                key="orderiscreated"
+                                                text="创建"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem5"
+                                                key="orderisreleased"
+                                                text="下达"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem6"
+                                                key="yy1_sendbpm"
+                                                text="已推BPM"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem7"
+                                                key="yy1_approvestatus_n"
+                                                text="BPM拒绝"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem71"
+                                                key="yy1_approvestatus_y"
+                                                text="BPM通过"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem14"
+                                                key="yy1_sendwms"
+                                                text="已推WMS"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem15"
+                                                key="orderisdelivered"
+                                                text="交货已完成"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem16"
+                                                key="orderistechnicallycompleted"
+                                                text="技术完成"
+                                            />
+                                            <core:Item
+                                                id="_IDGenItem17"
+                                                key="orderisll"
+                                                text="已领料"
+                                            />
+                                        </Select>
                                         <Button
                                             id="_IDGenButton"
                                             text="查询"

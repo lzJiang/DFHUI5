@@ -467,6 +467,15 @@
                         <Text text="总价" />
                     </Column>
                     <Column
+                        id="location_col"
+                        width="auto"
+                        importance="Low"
+                        hAlign="Center"
+                        headerMenu="menu"
+                    >
+                        <Text text="存储地点" />
+                    </Column>
+                    <Column
                         id="created_date_col"
                         width="auto"
                         importance="Low"
@@ -517,6 +526,9 @@
                             <ObjectIdentifier title="{dataModel>dj}" />
                             <ObjectIdentifier
                                 title="{dataModel>conditionratevalue}"
+                            />
+                            <ObjectIdentifier
+                                title="{dataModel>location}"
                             />
                             <ObjectIdentifier
                                 title="{dataModel>created_date}"

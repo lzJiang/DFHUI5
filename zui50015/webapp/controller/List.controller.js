@@ -171,6 +171,7 @@ sap.ui.define([
                     head.requestedquantity = that.getExcelCellData(payload[index].requestedquantity);
                     head.dj = that.getExcelCellData(payload[index].dj);
                     head.conditionratevalue = that.getExcelCellData(payload[index].conditionratevalue);
+                    head.location = that.getExcelCellData(payload[index].location);
                     data.push(head)
                 }
             }
@@ -419,6 +420,11 @@ sap.ui.define([
                     type: EdmType.String,
                     label: "含税总价",
                     property: "conditionratevalue"
+                },
+                {
+                    type: EdmType.String,
+                    label: "存储地点",
+                    property: "location"
                 },
                 {
                     type: EdmType.String,

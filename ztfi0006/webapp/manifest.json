@@ -1,0 +1,178 @@
+{
+  "_version": "1.64.0",
+  "sap.app": {
+    "id": "ztfi0006",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.15.5",
+      "toolsId": "22f9e42b-5f43-4013-93bd-34a543376d71"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_ZTFI_0006_o4/srvd/sap/zui_ZTFI_0006_o4/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "ZTFI_0006-MAINTAIN": {
+          "semanticObject": "ZTFI_0006",
+          "action": "MAINTAIN",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "componentUsages": {
+      "spreadsheetImporter": {
+        "name": "cc.spreadsheetimporter.v1_4_3"
+      }
+    },
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.124.10",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ztfi0006.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ZC_ZTFI_0006List",
+          "target": "ZC_ZTFI_0006List"
+        },
+        {
+          "pattern": "ZC_ZTFI_0006({key}):?query:",
+          "name": "ZC_ZTFI_0006ObjectPage",
+          "target": "ZC_ZTFI_0006ObjectPage"
+        }
+      ],
+      "targets": {
+        "ZC_ZTFI_0006List": {
+          "type": "Component",
+          "id": "ZC_ZTFI_0006List",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZC_ZTFI_0006",
+              "variantManagement": "Page",
+              "navigation": {
+                "ZC_ZTFI_0006": {
+                  "detail": {
+                    "route": "ZC_ZTFI_0006ObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  },
+                  "actions": {
+                    "ext": {
+                      "press": "ztfi0006.ext.ext.ext.openSpreadsheetUploadDialog",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Upload Excel"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ZC_ZTFI_0006ObjectPage": {
+          "type": "Component",
+          "id": "ZC_ZTFI_0006ObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/ZC_ZTFI_0006"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

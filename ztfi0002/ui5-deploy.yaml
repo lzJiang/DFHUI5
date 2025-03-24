@@ -20,6 +20,6 @@ builder:
           name: ZTFI_0002
           description: 管理货币和银行科目
           package: ZZFICO
-          transport: NMWK900376
+          transport: NMWK900462
         exclude:
           - /test/

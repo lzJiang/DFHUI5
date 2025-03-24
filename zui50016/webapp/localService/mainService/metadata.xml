@@ -1,0 +1,2895 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ZC_RPP001_ITEM_3_1Type">
+                <Key>
+                    <PropertyRef Name="PurchaseRequisition"/>
+                    <PropertyRef Name="PurchaseRequisitionItem"/>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Component"/>
+                </Key>
+                <Property Name="PurchaseRequisition" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PurchaseRequisitionItem" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="RequestedQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BaseUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="PurchaseRequisitionReleaseDate" Type="Edm.Date"/>
+                <Property Name="CreationDate" Type="Edm.Date"/>
+                <Property Name="DeliveryDate" Type="Edm.Date"/>
+            </EntityType>
+            <EntityType Name="ZC_RPP001_ITEM_2_2Type">
+                <Key>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="OrderNo"/>
+                </Key>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="OrderNo" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="OrderStartDate" Type="Edm.Date"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Yy1MfgBatchORD" Type="Edm.String" Nullable="false" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="ZC_RPP001_ITEM_2Type">
+                <Key>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="OrderNo"/>
+                </Key>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="OrderNo" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="OrderStartDate" Type="Edm.Date"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Yy1MfgBatchORD" Type="Edm.String" Nullable="false" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="ZC_RPP001Type">
+                <Key>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Component"/>
+                </Key>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MengeComponent" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="ComponentUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ProductName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ProductUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ComponentName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="SizeOrDimensionText" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="MaterialGroupName" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="Menge_aqkc" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="PurchaseRequisitionReleaseDate" Type="Edm.Decimal" Nullable="false" Precision="3"/>
+                <Property Name="GoodsReceiptDuration" Type="Edm.Decimal" Nullable="false" Precision="3"/>
+                <Property Name="MengeFxz" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="MengeDj" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="MengeZt" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="State" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="MengeSyxqLastmMonth" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="MengeXqLastMonth" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="RequirementDateLastMonth" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="MengeXqMonth" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="RequirementDateMonth" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="MengeSyky" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="Yy1MfgBatchORDLastMonth" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="BatchqtyLastMonth" Type="Edm.Decimal" Nullable="false" Precision="3"/>
+                <Property Name="BatchqtyMonth" Type="Edm.Decimal" Nullable="false" Precision="3"/>
+                <Property Name="BatchqtyNext1Month" Type="Edm.Decimal" Nullable="false" Precision="3"/>
+                <Property Name="BatchqtyNext2Month" Type="Edm.Decimal" Nullable="false" Precision="3"/>
+                <Property Name="BatchqtyNext3Month" Type="Edm.Decimal" Nullable="false" Precision="3"/>
+                <Property Name="PurReqCreationDateMonth" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="MengePurReqMonth" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="DeliveryDateMonth" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="MengeCgMonth" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="PurReqCreationDateNext1Month" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="MengePurReqNext1Month" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="DeliveryDateNext1Month" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="MengeCgNext1Month" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="PurReqCreationDateNext2Month" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="MengePurReqNext2Month" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="DeliveryDateNext2Month" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="MengeCgNext2Month" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="PurReqCreationDateNext3Month" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="MengePurReqNext3Month" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="DeliveryDateNext3Month" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="MengeCgygMonth" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <NavigationProperty Name="_item_1" Type="Collection(com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_1Type)"/>
+                <NavigationProperty Name="_item_1_1" Type="Collection(com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_1_1Type)"/>
+                <NavigationProperty Name="_item_2" Type="Collection(com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_2Type)"/>
+                <NavigationProperty Name="_item_2_1" Type="Collection(com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_2_1Type)"/>
+                <NavigationProperty Name="_item_2_2" Type="Collection(com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_2_2Type)"/>
+                <NavigationProperty Name="_item_2_3" Type="Collection(com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_2_3Type)"/>
+                <NavigationProperty Name="_item_2_4" Type="Collection(com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_2_4Type)"/>
+                <NavigationProperty Name="_item_3" Type="Collection(com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_3Type)"/>
+                <NavigationProperty Name="_item_3_1" Type="Collection(com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_3_1Type)"/>
+                <NavigationProperty Name="_item_3_2" Type="Collection(com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_3_2Type)"/>
+                <NavigationProperty Name="_item_3_3" Type="Collection(com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_3_3Type)"/>
+            </EntityType>
+            <EntityType Name="ZC_RPP001_ITEM_1Type">
+                <Key>
+                    <PropertyRef Name="Reservation"/>
+                    <PropertyRef Name="ReservationItem"/>
+                    <PropertyRef Name="RecordType"/>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Component"/>
+                </Key>
+                <Property Name="Reservation" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ReservationItem" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="RecordType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MatlCompRequirementDate" Type="Edm.Date"/>
+                <Property Name="ResvnItmRequiredQtyInBaseUnit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="ResvnItmWithdrawnQtyInBaseUnit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="MengeSyxq" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BaseUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ReferenceOrder" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="Yy1MfgBatchORD" Type="Edm.String" Nullable="false" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="ZC_RPP001_ITEM_3Type">
+                <Key>
+                    <PropertyRef Name="PurchaseRequisition"/>
+                    <PropertyRef Name="PurchaseRequisitionItem"/>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Component"/>
+                </Key>
+                <Property Name="PurchaseRequisition" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PurchaseRequisitionItem" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="RequestedQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BaseUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="PurchaseRequisitionReleaseDate" Type="Edm.Date"/>
+                <Property Name="CreationDate" Type="Edm.Date"/>
+                <Property Name="DeliveryDate" Type="Edm.Date"/>
+            </EntityType>
+            <EntityType Name="ZC_RPP001_ITEM_2_4Type">
+                <Key>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="OrderNo"/>
+                </Key>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="OrderNo" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="OrderStartDate" Type="Edm.Date"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Yy1MfgBatchORD" Type="Edm.String" Nullable="false" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="ZC_RPP001_ITEM_1_1Type">
+                <Key>
+                    <PropertyRef Name="Reservation"/>
+                    <PropertyRef Name="ReservationItem"/>
+                    <PropertyRef Name="RecordType"/>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Component"/>
+                </Key>
+                <Property Name="Reservation" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ReservationItem" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="RecordType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MatlCompRequirementDate" Type="Edm.Date"/>
+                <Property Name="ResvnItmRequiredQtyInBaseUnit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="ResvnItmWithdrawnQtyInBaseUnit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="MengeSyxq" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BaseUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ReferenceOrder" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="Yy1MfgBatchORD" Type="Edm.String" Nullable="false" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="ZC_RPP001_ITEM_2_1Type">
+                <Key>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="OrderNo"/>
+                </Key>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="OrderNo" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="OrderStartDate" Type="Edm.Date"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Yy1MfgBatchORD" Type="Edm.String" Nullable="false" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="ZC_RPP001_ITEM_2_3Type">
+                <Key>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="OrderNo"/>
+                </Key>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="OrderNo" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="OrderStartDate" Type="Edm.Date"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Yy1MfgBatchORD" Type="Edm.String" Nullable="false" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="ZC_RPP001_ITEM_3_2Type">
+                <Key>
+                    <PropertyRef Name="PurchaseRequisition"/>
+                    <PropertyRef Name="PurchaseRequisitionItem"/>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Component"/>
+                </Key>
+                <Property Name="PurchaseRequisition" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PurchaseRequisitionItem" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="RequestedQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BaseUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="PurchaseRequisitionReleaseDate" Type="Edm.Date"/>
+                <Property Name="CreationDate" Type="Edm.Date"/>
+                <Property Name="DeliveryDate" Type="Edm.Date"/>
+            </EntityType>
+            <EntityType Name="ZC_RPP001_ITEM_3_3Type">
+                <Key>
+                    <PropertyRef Name="PurchaseRequisition"/>
+                    <PropertyRef Name="PurchaseRequisitionItem"/>
+                    <PropertyRef Name="Gjahr"/>
+                    <PropertyRef Name="Monat"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Component"/>
+                </Key>
+                <Property Name="PurchaseRequisition" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PurchaseRequisitionItem" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="RequestedQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BaseUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="PurchaseRequisitionReleaseDate" Type="Edm.Date"/>
+                <Property Name="CreationDate" Type="Edm.Date"/>
+                <Property Name="DeliveryDate" Type="Edm.Date"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="ZC_RPP001" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001Type">
+                    <NavigationPropertyBinding Path="_item_1" Target="ZC_RPP001_ITEM_1"/>
+                    <NavigationPropertyBinding Path="_item_1_1" Target="ZC_RPP001_ITEM_1_1"/>
+                    <NavigationPropertyBinding Path="_item_2" Target="ZC_RPP001_ITEM_2"/>
+                    <NavigationPropertyBinding Path="_item_2_1" Target="ZC_RPP001_ITEM_2_1"/>
+                    <NavigationPropertyBinding Path="_item_2_2" Target="ZC_RPP001_ITEM_2_2"/>
+                    <NavigationPropertyBinding Path="_item_2_3" Target="ZC_RPP001_ITEM_2_3"/>
+                    <NavigationPropertyBinding Path="_item_2_4" Target="ZC_RPP001_ITEM_2_4"/>
+                    <NavigationPropertyBinding Path="_item_3" Target="ZC_RPP001_ITEM_3"/>
+                    <NavigationPropertyBinding Path="_item_3_1" Target="ZC_RPP001_ITEM_3_1"/>
+                    <NavigationPropertyBinding Path="_item_3_2" Target="ZC_RPP001_ITEM_3_2"/>
+                    <NavigationPropertyBinding Path="_item_3_3" Target="ZC_RPP001_ITEM_3_3"/>
+                </EntitySet>
+                <EntitySet Name="ZC_RPP001_ITEM_1" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_1Type"/>
+                <EntitySet Name="ZC_RPP001_ITEM_1_1" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_1_1Type"/>
+                <EntitySet Name="ZC_RPP001_ITEM_2" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_2Type"/>
+                <EntitySet Name="ZC_RPP001_ITEM_2_1" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_2_1Type"/>
+                <EntitySet Name="ZC_RPP001_ITEM_2_2" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_2_2Type"/>
+                <EntitySet Name="ZC_RPP001_ITEM_2_3" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_2_3Type"/>
+                <EntitySet Name="ZC_RPP001_ITEM_2_4" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_2_4Type"/>
+                <EntitySet Name="ZC_RPP001_ITEM_3" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_3Type"/>
+                <EntitySet Name="ZC_RPP001_ITEM_3_1" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_3_1Type"/>
+                <EntitySet Name="ZC_RPP001_ITEM_3_2" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_3_2Type"/>
+                <EntitySet Name="ZC_RPP001_ITEM_3_3" EntityType="com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.ZC_RPP001_ITEM_3_3Type"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_1Type/PurchaseRequisition">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="采购申请"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购申请编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BANFN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_1Type/PurchaseRequisitionItem">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="申请的项目"/>
+                <Annotation Term="SAP__common.Heading" String="项目"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购申请的项目编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BNFPO"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_1Type/Gjahr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="会计年度"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_1Type/Monat">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="过账期间"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_1Type/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_1Type/Component">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_1Type/RequestedQuantity">
+                <Annotation Term="SAP__measures.Unit" Path="BaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_1Type/BaseUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="基本计量单位"/>
+                <Annotation Term="SAP__common.Heading" String="计"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_1Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表-次月采购申请"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表-次月采购申请"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表-次月采购申请"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionItem"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RequestedQuantity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionReleaseDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CreationDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="_item_3_1">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="采购申请"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="采购申请行"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionItem"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="数量"/>
+                            <PropertyValue Property="Value" Path="RequestedQuantity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="审批日期"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionReleaseDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="创建日期"/>
+                            <PropertyValue Property="Value" Path="CreationDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="交货日期"/>
+                            <PropertyValue Property="Value" Path="DeliveryDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001_ITEM_3_1">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="RequestedQuantity"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_2Type/Gjahr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="会计年度"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_2Type/Monat">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="过账期间"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_2Type/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_2Type/Product">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_2Type/OrderNo">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="订单"/>
+                <Annotation Term="SAP__common.QuickInfo" String="订单编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_2Type/OrderType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="记录类型"/>
+                <Annotation Term="SAP__common.Heading" String="RcT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_2Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表-次月批次"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表-次月批次"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表-次月批次"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="OrderNo"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderNo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderStartDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="_item_2_2">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="计划订单"/>
+                            <PropertyValue Property="Value" Path="OrderNo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="生产批次"/>
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="开始日期"/>
+                            <PropertyValue Property="Value" Path="OrderStartDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001_ITEM_2_2">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2Type/Gjahr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="会计年度"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2Type/Monat">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="过账期间"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2Type/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2Type/Product">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2Type/OrderNo">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="订单"/>
+                <Annotation Term="SAP__common.QuickInfo" String="订单编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2Type/OrderType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="记录类型"/>
+                <Annotation Term="SAP__common.Heading" String="RcT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表-上月在产批次"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表-上月在产批次"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表-上月在产批次"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="OrderNo"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderNo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderStartDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="_item_2">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="生产订单"/>
+                            <PropertyValue Property="Value" Path="OrderNo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="生产批次"/>
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="开始日期"/>
+                            <PropertyValue Property="Value" Path="OrderStartDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001_ITEM_2">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/Gjahr">
+                <Annotation Term="SAP__common.Label" String="年度"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/Monat">
+                <Annotation Term="SAP__common.Label" String="期间"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/Plant">
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_plant/0001;ps='srvd-zui_c_rpp001_o4-0001';va='com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.et-zc_rpp001.plant'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="工厂"/>
+                <Annotation Term="SAP__common.QuickInfo" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/Product">
+                <Annotation Term="SAP__common.Label" String="产品编码"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/Component">
+                <Annotation Term="SAP__common.Label" String="货品编码"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_product/0001;ps='srvd-zui_c_rpp001_o4-0001';va='com.sap.gateway.srvd.zui_c_rpp001_o4.v0001.et-zc_rpp001.component'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeComponent">
+                <Annotation Term="SAP__common.Label" String="每批用量"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/ComponentUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="单位"/>
+                <Annotation Term="SAP__common.Heading" String="计"/>
+                <Annotation Term="SAP__common.QuickInfo" String="基本计量单位"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/ProductName">
+                <Annotation Term="SAP__common.Label" String="产品名称"/>
+                <Annotation Term="SAP__common.Heading" String="物料描述"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料描述"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/ProductUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="产品单位"/>
+                <Annotation Term="SAP__common.Heading" String="计"/>
+                <Annotation Term="SAP__common.QuickInfo" String="基本计量单位"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/ComponentName">
+                <Annotation Term="SAP__common.Label" String="货品名称"/>
+                <Annotation Term="SAP__common.Heading" String="物料描述"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料描述"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/SizeOrDimensionText">
+                <Annotation Term="SAP__common.Label" String="规格"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MaterialGroupName">
+                <Annotation Term="SAP__common.Label" String="物料组描述"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/Menge_aqkc">
+                <Annotation Term="SAP__common.Label" String="安全库存"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/PurchaseRequisitionReleaseDate">
+                <Annotation Term="SAP__common.Label" String="采购周期"/>
+                <Annotation Term="SAP__common.Heading" String="GRT"/>
+                <Annotation Term="SAP__common.QuickInfo" String="以天计的收货处理时间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WEBAZ"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/GoodsReceiptDuration">
+                <Annotation Term="SAP__common.Label" String="检测周期"/>
+                <Annotation Term="SAP__common.Heading" String="GRT"/>
+                <Annotation Term="SAP__common.QuickInfo" String="以天计的收货处理时间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WEBAZ"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeFxz">
+                <Annotation Term="SAP__common.Label" String="库存合格数量"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeDj">
+                <Annotation Term="SAP__common.Label" String="待检数量"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeZt">
+                <Annotation Term="SAP__common.Label" String="在途"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/State">
+                <Annotation Term="SAP__common.Label" String="是否紧张"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeSyxqLastmMonth">
+                <Annotation Term="SAP__common.Label" String="上月在产批剩余需求"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeXqLastMonth">
+                <Annotation Term="SAP__common.Label" String="上月在产批总需求"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/RequirementDateLastMonth">
+                <Annotation Term="SAP__common.Label" String="上月在产批需求日期"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeXqMonth">
+                <Annotation Term="SAP__common.Label" String="本月需求"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/RequirementDateMonth">
+                <Annotation Term="SAP__common.Label" String="本月需求日期"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeSyky">
+                <Annotation Term="SAP__common.Label" String="预计可用"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/Yy1MfgBatchORDLastMonth">
+                <Annotation Term="SAP__common.Label" String="上月在产批号"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/BatchqtyLastMonth">
+                <Annotation Term="SAP__common.Label" String="上月在产批次"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/BatchqtyMonth">
+                <Annotation Term="SAP__common.Label" String="本月批次"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/BatchqtyNext1Month">
+                <Annotation Term="SAP__common.Label" String="次月批次"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/BatchqtyNext2Month">
+                <Annotation Term="SAP__common.Label" String="第三月批次"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/BatchqtyNext3Month">
+                <Annotation Term="SAP__common.Label" String="第四月批次"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/PurReqCreationDateMonth">
+                <Annotation Term="SAP__common.Label" String="建议下单时间"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengePurReqMonth">
+                <Annotation Term="SAP__common.Label" String="MRP采购申请数量（本月）"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/DeliveryDateMonth">
+                <Annotation Term="SAP__common.Label" String="要求到货时间（本月）"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeCgMonth">
+                <Annotation Term="SAP__common.Label" String="本月入库数量"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/PurReqCreationDateNext1Month">
+                <Annotation Term="SAP__common.Label" String="建议下单时间(次月)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengePurReqNext1Month">
+                <Annotation Term="SAP__common.Label" String="MRP采购申请数量（次月）"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/DeliveryDateNext1Month">
+                <Annotation Term="SAP__common.Label" String="要求到货时间（次月）"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeCgNext1Month">
+                <Annotation Term="SAP__common.Label" String="次月入库数量"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/PurReqCreationDateNext2Month">
+                <Annotation Term="SAP__common.Label" String="建议下单时间(第三月)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengePurReqNext2Month">
+                <Annotation Term="SAP__common.Label" String="MRP采购申请数量（第三月）"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/DeliveryDateNext2Month">
+                <Annotation Term="SAP__common.Label" String="要求到货时间（第三月）"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeCgNext2Month">
+                <Annotation Term="SAP__common.Label" String="第三月入库数量"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/PurReqCreationDateNext3Month">
+                <Annotation Term="SAP__common.Label" String="建议下单时间(第四月)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengePurReqNext3Month">
+                <Annotation Term="SAP__common.Label" String="MRP采购申请数量（第四月）"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/DeliveryDateNext3Month">
+                <Annotation Term="SAP__common.Label" String="要求到货时间（第四月）"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type/MengeCgygMonth">
+                <Annotation Term="SAP__common.Label" String="预估采购数量"/>
+                <Annotation Term="SAP__measures.Unit" Path="ComponentUnit"/>
+                <Annotation Term="SAP__common.Heading" String="数量"/>
+                <Annotation Term="SAP__common.QuickInfo" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_item_1"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_item_1_1"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_item_2"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_item_2_1"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_item_2_2"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_item_2_3"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_item_2_4"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_item_3"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_item_3_1"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_item_3_2"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_item_3_3"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Gjahr"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Monat"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Plant"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Component"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="MaterialGroupName"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>Gjahr</PropertyPath>
+                                <PropertyPath>Monat</PropertyPath>
+                                <PropertyPath>Plant</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_item_1</PropertyPath>
+                                <PropertyPath>_item_1_1</PropertyPath>
+                                <PropertyPath>_item_2</PropertyPath>
+                                <PropertyPath>_item_2_1</PropertyPath>
+                                <PropertyPath>_item_2_2</PropertyPath>
+                                <PropertyPath>_item_2_3</PropertyPath>
+                                <PropertyPath>_item_2_4</PropertyPath>
+                                <PropertyPath>_item_3</PropertyPath>
+                                <PropertyPath>_item_3_1</PropertyPath>
+                                <PropertyPath>_item_3_2</PropertyPath>
+                                <PropertyPath>_item_3_3</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="汇总信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="上月生产预留"/>
+                            <PropertyValue Property="ID" String="Facet2-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_item_1/@SAP__UI.LineItem#_item_1"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="本月生产预留"/>
+                            <PropertyValue Property="ID" String="Facet3-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_item_1_1/@SAP__UI.LineItem#_item_1_1"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="上月在产批次"/>
+                            <PropertyValue Property="ID" String="Facet4-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_item_2/@SAP__UI.LineItem#_item_2"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="本月生产批次"/>
+                            <PropertyValue Property="ID" String="Facet5-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_item_2_1/@SAP__UI.LineItem#_item_2_1"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="次月生产批次"/>
+                            <PropertyValue Property="ID" String="Facet6-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_item_2_2/@SAP__UI.LineItem#_item_2_2"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="第三月生产批次"/>
+                            <PropertyValue Property="ID" String="Facet7-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_item_2_3/@SAP__UI.LineItem#_item_2_3"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="第四月生产批次"/>
+                            <PropertyValue Property="ID" String="Facet8-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_item_2_4/@SAP__UI.LineItem#_item_2_4"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="本月采购申请"/>
+                            <PropertyValue Property="ID" String="Facet9-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_item_3/@SAP__UI.LineItem#_item_3"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="次月采购申请"/>
+                            <PropertyValue Property="ID" String="Facet10-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_item_3_1/@SAP__UI.LineItem#_item_3_1"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="第三月采购申请"/>
+                            <PropertyValue Property="ID" String="Facet11-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_item_3_2/@SAP__UI.LineItem#_item_3_2"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="第四月采购申请"/>
+                            <PropertyValue Property="ID" String="Facet12-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_item_3_3/@SAP__UI.LineItem#_item_3_3"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="采购计划详情"/>
+                            <PropertyValue Property="ID" String="HeaderFacet"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#HeaderItems"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="HeaderItems">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Gjahr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Monat"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Plant"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Product"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Component"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="Component"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Gjahr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Monat"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Plant"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeComponent"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ComponentUnit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductUnit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ComponentName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SizeOrDimensionText"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialGroupName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Menge_aqkc"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionReleaseDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GoodsReceiptDuration"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeFxz"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeDj"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeZt"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="State"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeXqLastMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RequirementDateLastMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeXqMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RequirementDateMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeSyky"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORDLastMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BatchqtyLastMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BatchqtyMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BatchqtyNext1Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BatchqtyNext2Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BatchqtyNext3Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurReqCreationDateMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengePurReqMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDateMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeCgMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurReqCreationDateNext1Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengePurReqNext1Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDateNext1Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeCgNext1Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurReqCreationDateNext2Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengePurReqNext2Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDateNext2Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeCgNext2Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurReqCreationDateNext3Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengePurReqNext3Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDateNext3Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeCgygMonth"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Gjahr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Monat"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Plant"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeComponent"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ComponentUnit"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductUnit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ComponentName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SizeOrDimensionText"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialGroupName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Menge_aqkc"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionReleaseDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GoodsReceiptDuration"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeFxz"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeDj"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeZt"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="State"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeXqLastMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RequirementDateLastMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeXqMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RequirementDateMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeSyky"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORDLastMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BatchqtyLastMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BatchqtyMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BatchqtyNext1Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BatchqtyNext2Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BatchqtyNext3Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurReqCreationDateMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengePurReqMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDateMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeCgMonth"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurReqCreationDateNext1Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengePurReqNext1Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDateNext1Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeCgNext1Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurReqCreationDateNext2Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengePurReqNext2Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDateNext2Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeCgNext2Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurReqCreationDateNext3Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengePurReqNext3Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDateNext3Month"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeCgygMonth"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Gjahr</PropertyPath>
+                        <PropertyPath>Monat</PropertyPath>
+                        <PropertyPath>Plant</PropertyPath>
+                        <PropertyPath>Component</PropertyPath>
+                        <PropertyPath>MaterialGroupName</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/Reservation">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="预留"/>
+                <Annotation Term="SAP__common.Heading" String="预留编号"/>
+                <Annotation Term="SAP__common.QuickInfo" String="预留/相关需求的编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSNUM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/ReservationItem">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="项目编号"/>
+                <Annotation Term="SAP__common.Heading" String="项"/>
+                <Annotation Term="SAP__common.QuickInfo" String="预留/相关需求的项目编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSPOS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/RecordType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="记录类型"/>
+                <Annotation Term="SAP__common.Heading" String="RcT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/Gjahr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="会计年度"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/Monat">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="过账期间"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/Product">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/Component">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/ResvnItmRequiredQtyInBaseUnit">
+                <Annotation Term="SAP__measures.Unit" Path="BaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/ResvnItmWithdrawnQtyInBaseUnit">
+                <Annotation Term="SAP__measures.Unit" Path="BaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/MengeSyxq">
+                <Annotation Term="SAP__measures.Unit" Path="BaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/BaseUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="基本计量单位"/>
+                <Annotation Term="SAP__common.Heading" String="计"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/ReferenceOrder">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="订单"/>
+                <Annotation Term="SAP__common.QuickInfo" String="订单编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表-上月生产预留明细"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表-上月生产预留明细"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表-上月生产预留明细"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="ReferenceOrder"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ReferenceOrder"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MatlCompRequirementDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ResvnItmRequiredQtyInBaseUnit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ResvnItmWithdrawnQtyInBaseUnit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeSyxq"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="_item_1">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="生产订单"/>
+                            <PropertyValue Property="Value" Path="ReferenceOrder"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="生产批次"/>
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="产品编码"/>
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="货品编码"/>
+                            <PropertyValue Property="Value" Path="Component"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="需求日期"/>
+                            <PropertyValue Property="Value" Path="MatlCompRequirementDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="需求数量"/>
+                            <PropertyValue Property="Value" Path="ResvnItmRequiredQtyInBaseUnit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="提货数量"/>
+                            <PropertyValue Property="Value" Path="ResvnItmWithdrawnQtyInBaseUnit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="剩余需求数量"/>
+                            <PropertyValue Property="Value" Path="MengeSyxq"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001_ITEM_1">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ResvnItmRequiredQtyInBaseUnit"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ResvnItmWithdrawnQtyInBaseUnit"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="MengeSyxq"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3Type/PurchaseRequisition">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="采购申请"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购申请编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BANFN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3Type/PurchaseRequisitionItem">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="申请的项目"/>
+                <Annotation Term="SAP__common.Heading" String="项目"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购申请的项目编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BNFPO"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3Type/Gjahr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="会计年度"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3Type/Monat">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="过账期间"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3Type/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3Type/Component">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3Type/RequestedQuantity">
+                <Annotation Term="SAP__measures.Unit" Path="BaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3Type/BaseUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="基本计量单位"/>
+                <Annotation Term="SAP__common.Heading" String="计"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表-本月采购申请"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表-本月采购申请"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表-本月采购申请"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionItem"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RequestedQuantity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionReleaseDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CreationDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="_item_3">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="采购申请"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="采购申请行"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionItem"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="数量"/>
+                            <PropertyValue Property="Value" Path="RequestedQuantity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="审批日期"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionReleaseDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="创建日期"/>
+                            <PropertyValue Property="Value" Path="CreationDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="交货日期"/>
+                            <PropertyValue Property="Value" Path="DeliveryDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001_ITEM_3">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="RequestedQuantity"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_4Type/Gjahr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="会计年度"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_4Type/Monat">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="过账期间"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_4Type/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_4Type/Product">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_4Type/OrderNo">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="订单"/>
+                <Annotation Term="SAP__common.QuickInfo" String="订单编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_4Type/OrderType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="记录类型"/>
+                <Annotation Term="SAP__common.Heading" String="RcT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_4Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表-第四月批次"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表-第四月批次"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表-第四月批次"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="OrderNo"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderNo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderStartDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="_item_2_4">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="计划订单"/>
+                            <PropertyValue Property="Value" Path="OrderNo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="生产批次"/>
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="开始日期"/>
+                            <PropertyValue Property="Value" Path="OrderStartDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001_ITEM_2_4">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/Reservation">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="预留"/>
+                <Annotation Term="SAP__common.Heading" String="预留编号"/>
+                <Annotation Term="SAP__common.QuickInfo" String="预留/相关需求的编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSNUM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/ReservationItem">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="项目编号"/>
+                <Annotation Term="SAP__common.Heading" String="项"/>
+                <Annotation Term="SAP__common.QuickInfo" String="预留/相关需求的项目编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSPOS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/RecordType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="记录类型"/>
+                <Annotation Term="SAP__common.Heading" String="RcT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/Gjahr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="会计年度"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/Monat">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="过账期间"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/Product">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/Component">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/ResvnItmRequiredQtyInBaseUnit">
+                <Annotation Term="SAP__measures.Unit" Path="BaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/ResvnItmWithdrawnQtyInBaseUnit">
+                <Annotation Term="SAP__measures.Unit" Path="BaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/MengeSyxq">
+                <Annotation Term="SAP__measures.Unit" Path="BaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/BaseUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="基本计量单位"/>
+                <Annotation Term="SAP__common.Heading" String="计"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/ReferenceOrder">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="订单"/>
+                <Annotation Term="SAP__common.QuickInfo" String="订单编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表-本月生产预留明细"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表-本月生产预留明细"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表-本月生产预留明细"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="ReferenceOrder"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ReferenceOrder"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MatlCompRequirementDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ResvnItmRequiredQtyInBaseUnit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ResvnItmWithdrawnQtyInBaseUnit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MengeSyxq"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="_item_1_1">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="生产订单"/>
+                            <PropertyValue Property="Value" Path="ReferenceOrder"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="生产批次"/>
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="产品编码"/>
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="货品编码"/>
+                            <PropertyValue Property="Value" Path="Component"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="需求日期"/>
+                            <PropertyValue Property="Value" Path="MatlCompRequirementDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="需求数量"/>
+                            <PropertyValue Property="Value" Path="ResvnItmRequiredQtyInBaseUnit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="提货数量"/>
+                            <PropertyValue Property="Value" Path="ResvnItmWithdrawnQtyInBaseUnit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="剩余需求数量"/>
+                            <PropertyValue Property="Value" Path="MengeSyxq"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001_ITEM_1_1">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ResvnItmRequiredQtyInBaseUnit"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ResvnItmWithdrawnQtyInBaseUnit"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="MengeSyxq"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_1Type/Gjahr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="会计年度"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_1Type/Monat">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="过账期间"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_1Type/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_1Type/Product">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_1Type/OrderNo">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="订单"/>
+                <Annotation Term="SAP__common.QuickInfo" String="订单编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_1Type/OrderType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="记录类型"/>
+                <Annotation Term="SAP__common.Heading" String="RcT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_1Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表-本月批次"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表-本月批次"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表-本月批次"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="OrderNo"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderNo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderStartDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="_item_2_1">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="生产订单"/>
+                            <PropertyValue Property="Value" Path="OrderNo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="生产批次"/>
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="开始日期"/>
+                            <PropertyValue Property="Value" Path="OrderStartDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001_ITEM_2_1">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_3Type/Gjahr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="会计年度"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_3Type/Monat">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="过账期间"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_3Type/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_3Type/Product">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_3Type/OrderNo">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="订单"/>
+                <Annotation Term="SAP__common.QuickInfo" String="订单编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_3Type/OrderType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="记录类型"/>
+                <Annotation Term="SAP__common.Heading" String="RcT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_2_3Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表-第三月批次"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表-第三月批次"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表-第三月批次"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="OrderNo"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderNo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderStartDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="_item_2_3">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="计划订单"/>
+                            <PropertyValue Property="Value" Path="OrderNo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="生产批次"/>
+                            <PropertyValue Property="Value" Path="Yy1MfgBatchORD"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="开始日期"/>
+                            <PropertyValue Property="Value" Path="OrderStartDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001_ITEM_2_3">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_2Type/PurchaseRequisition">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="采购申请"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购申请编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BANFN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_2Type/PurchaseRequisitionItem">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="申请的项目"/>
+                <Annotation Term="SAP__common.Heading" String="项目"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购申请的项目编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BNFPO"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_2Type/Gjahr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="会计年度"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_2Type/Monat">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="过账期间"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_2Type/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_2Type/Component">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_2Type/RequestedQuantity">
+                <Annotation Term="SAP__measures.Unit" Path="BaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_2Type/BaseUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="基本计量单位"/>
+                <Annotation Term="SAP__common.Heading" String="计"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_2Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表-第三月采购申请"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表-第三月采购申请"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表-第三月采购申请"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionItem"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RequestedQuantity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionReleaseDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CreationDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="_item_3_2">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="采购申请"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="采购申请行"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionItem"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="数量"/>
+                            <PropertyValue Property="Value" Path="RequestedQuantity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="审批日期"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionReleaseDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="创建日期"/>
+                            <PropertyValue Property="Value" Path="CreationDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="交货日期"/>
+                            <PropertyValue Property="Value" Path="DeliveryDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001_ITEM_3_2">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="RequestedQuantity"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_3Type/PurchaseRequisition">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="采购申请"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购申请编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BANFN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_3Type/PurchaseRequisitionItem">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="申请的项目"/>
+                <Annotation Term="SAP__common.Heading" String="项目"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购申请的项目编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BNFPO"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_3Type/Gjahr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="会计年度"/>
+                <Annotation Term="SAP__common.Heading" String="年度"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_3Type/Monat">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="过账期间"/>
+                <Annotation Term="SAP__common.QuickInfo" String="会计期间"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MONAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_3Type/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_3Type/Component">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="物料"/>
+                <Annotation Term="SAP__common.QuickInfo" String="物料编号"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_3Type/RequestedQuantity">
+                <Annotation Term="SAP__measures.Unit" Path="BaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="数量"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_3Type/BaseUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="基本计量单位"/>
+                <Annotation Term="SAP__common.Heading" String="计"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_3_3Type">
+                <Annotation Term="SAP__common.Label" String="采购计划表-第四月采购申请"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="ID" String="Facet1-ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购计划表-第四月采购申请"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购计划表-第四月采购申请"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionItem"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RequestedQuantity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionReleaseDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CreationDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeliveryDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="_item_3_3">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="采购申请"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisition"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="采购申请行"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionItem"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="数量"/>
+                            <PropertyValue Property="Value" Path="RequestedQuantity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="审批日期"/>
+                            <PropertyValue Property="Value" Path="PurchaseRequisitionReleaseDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="创建日期"/>
+                            <PropertyValue Property="Value" Path="CreationDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="交货日期"/>
+                            <PropertyValue Property="Value" Path="DeliveryDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_RPP001_ITEM_3_3">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="RequestedQuantity"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1Type/MatlCompRequirementDate">
+                <Annotation Term="SAP__common.Label" String="需求日期"/>
+                <Annotation Term="SAP__common.QuickInfo" String="组件的需求日期"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BDTER"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_RPP001_ITEM_1_1Type/MatlCompRequirementDate">
+                <Annotation Term="SAP__common.Label" String="需求日期"/>
+                <Annotation Term="SAP__common.QuickInfo" String="组件的需求日期"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BDTER"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

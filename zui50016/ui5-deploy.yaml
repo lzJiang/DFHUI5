@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: zui50016
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: DEV080_SAML_ASSERTION
+          url: https://my200830.s4hana.sapcloud.cn
+          authenticationType: reentranceTicket # SAML support for vscode
+        app:
+          name: ZUI50016
+          description: 采购计划表
+          package: ZZPP
+          transport: NMWK900414
+        exclude:
+          - /test/

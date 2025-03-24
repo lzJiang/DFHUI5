@@ -39,7 +39,8 @@ sap.ui.define([
                 yy1_mfgbatch_ord: "",
                 mfgorderplannedstartdate: mfgorderplannedstartdatestr,
                 mfgorderplannedenddate: "",
-                productname: ""
+                productname: "",
+                status:""
             }), "searchModel");
             this.getView().setModel(new JSONModel({
                 data: ""
@@ -423,6 +424,9 @@ sap.ui.define([
             }
             if (item.orderistechnicallycompleted == "X") {
                 item.status = item.status + "【技术完成】";
+            }
+            if (item.orderisll== "X") {
+                item.status = item.status + "【已领料】";
             }
             return item.status;
         },
