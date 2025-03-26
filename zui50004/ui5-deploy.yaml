@@ -20,6 +20,6 @@ builder:
           name: zui50004
           description: 生产领料单
           package: ZZUI5
-          transport: NMWK900462
+          transport: NMWK900486
         exclude:
           - /test/

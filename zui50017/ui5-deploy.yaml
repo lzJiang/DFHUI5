@@ -21,6 +21,6 @@ builder:
           name: ZUI50017
           description: 收入成本明细表
           package: ZZFICO
-          transport: NMWK900462
+          transport: NMWK900486
         exclude:
           - /test/

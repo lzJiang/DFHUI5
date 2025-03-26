@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <style>
+        html,
+        body {
+            height: auto;
+            margin: 0;
+        }
+    </style>
+    <style type="text/css">
+        @media print {
+            @page {
+                size: A4;
+                /* 设置打印纸张尺寸为自动 */
+                margin: 0mm;
+                /* 设置页边距为0 */
+            }
+
+            /* 如果需要隐藏所有页眉和页脚，可以使用以下代码 */
+            @page {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            center.nextpage{
+                page-break-before:always
+            }
+        }
+
+        table.tftable {
+            font-size: 13px;
+            color: #333333;
+            width: 90%;
+            border-width: 1px;
+            border-collapse: collapse;
+        }
+
+        table.tftable th {
+            font-size: 12px;
+            background-color: #acc8cc;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            text-align: left;
+        }
+
+        table.tftable tr {
+            background-color: #ffffff;
+        }
+
+        table.tftable td {
+            font-size: 12px;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            text-align: center;
+        }
+
+        .noborder td {
+            font-size: 12px;
+            border-width: 0px !important;
+            padding-left: 0px !important;
+            text-align: center !important;
+        }
+    </style>
+</head>
+
+<body id="content">
+    <center style="margin-top: 60px;">
+        <h3 id="title">title</h3>
+    </center>
+    <center>
+        <table id="tfheader" class="tftable noborder">
+            <col style="width: 33%;">
+            <col style="width: 34%;">
+            <col style="width: 33%;">
+            <tr>
+                <td id="scpc">生产批号：scpc</td>
+                <td id="scjh">生产计划：scjh</td>
+                <td id="jhksrq">jhksrq</td>
+            </tr>
+        </table>
+        <table id="tfhover" class="tftable">
+            <col style="width: 10%;">
+            <col style="width: 30%;">
+            <col style="width: 10%;">
+            <col style="width: 30%;">
+            <tr>
+                <td>项目</td>
+                <td>内容</td>
+                <td>项目</td>
+                <td>内容</td>
+            </tr>
+            <tr height=60px>
+                <td>产品规格</td>
+                <td id="cpgg">cpgg</td>
+                <td>预计完工时间</td>
+                <td id="yjwgsj">yjwgsj</td>
+            </tr>
+            <tr height=150px>
+                <td>原料投入</td>
+                <td id="yltr">yltr</td>
+                <td>辅料投入</td>
+                <td id="fltr">fltr</td>
+            </tr>
+            <tr height=150px>
+                <td>计划生产数量</td>
+                <td id="jhscsl">jhscsl</td>
+                <td>包材投入</td>
+                <td id="bctr">bctr</td>
+            </tr>
+        </table>
+        <table id="tffooter" class="tftable noborder">
+            <col style="width: 33%;">
+            <col style="width: 34%;">
+            <col style="width: 33%;">
+            <tr>
+                <td id="pzr">批准人：pzr</td>
+                <td id="shr">审核人：shr</td>
+                <td id="zdr">制单人：zdr</td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>

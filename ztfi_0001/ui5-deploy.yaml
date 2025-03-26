@@ -20,6 +20,6 @@ builder:
           name: ZTFI_0001
           description: 银行账号&开户行&开户行账户关系维护表
           package: ZZFICO
-          transport: NMWK900462
+          transport: NMWK900486
         exclude:
           - /test/

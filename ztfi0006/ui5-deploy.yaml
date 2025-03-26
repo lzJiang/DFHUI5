@@ -20,6 +20,6 @@ builder:
           name: ZTFI_0006
           description: CBS收款凭证配置表
           package: ZZFICO
-          transport: NMWK900462
+          transport: NMWK900486
         exclude:
           - /test/

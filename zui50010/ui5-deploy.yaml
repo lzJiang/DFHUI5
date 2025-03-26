@@ -20,6 +20,6 @@ builder:
           name: zui50010
           description: 管理入库通知单
           package: ZZUI5
-          transport: NMWK900462
+          transport: NMWK900486
         exclude:
           - /test/
